@@ -1,0 +1,6 @@
+.venv
+.git
+logs
+evidencias
+__pycache__
+docker-compose*.yml
