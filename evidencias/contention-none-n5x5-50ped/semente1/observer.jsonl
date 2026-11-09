@@ -1,0 +1,150 @@
+{"ts": 1793996792.350698, "mono": 12804.505631, "component": "observer", "event": "OBSERVER_START", "port": 18000}
+{"ts": 1793996796.246893, "mono": 12808.401823, "component": "observer", "event": "BEGIN", "seq": 1, "request_id": "c5-1", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793996796.247474, "mono": 12808.402403, "component": "observer", "event": "BEGIN", "seq": 2, "request_id": "c3-1", "node": "node3", "client": "c3", "active": 2, "overlap": true}
+{"ts": 1793996796.248245, "mono": 12808.403175, "component": "observer", "event": "OVERLAP", "seq": 2, "request_id": "c3-1", "concurrent_with": ["c5-1"]}
+{"ts": 1793996796.248989, "mono": 12808.403919, "component": "observer", "event": "BEGIN", "seq": 3, "request_id": "c1-1", "node": "node1", "client": "c1", "active": 3, "overlap": true}
+{"ts": 1793996796.249451, "mono": 12808.40438, "component": "observer", "event": "OVERLAP", "seq": 3, "request_id": "c1-1", "concurrent_with": ["c3-1", "c5-1"]}
+{"ts": 1793996796.250547, "mono": 12808.405478, "component": "observer", "event": "BEGIN", "seq": 4, "request_id": "c2-1", "node": "node2", "client": "c2", "active": 4, "overlap": true}
+{"ts": 1793996796.250875, "mono": 12808.405804, "component": "observer", "event": "OVERLAP", "seq": 4, "request_id": "c2-1", "concurrent_with": ["c1-1", "c3-1", "c5-1"]}
+{"ts": 1793996796.251215, "mono": 12808.406144, "component": "observer", "event": "BEGIN", "seq": 5, "request_id": "c4-1", "node": "node4", "client": "c4", "active": 5, "overlap": true}
+{"ts": 1793996796.251281, "mono": 12808.406208, "component": "observer", "event": "OVERLAP", "seq": 5, "request_id": "c4-1", "concurrent_with": ["c1-1", "c2-1", "c3-1", "c5-1"]}
+{"ts": 1793996796.658091, "mono": 12808.813036, "component": "observer", "event": "END", "seq": 6, "request_id": "c3-1", "node": "node3", "client": "c3", "active": 4}
+{"ts": 1793996796.667391, "mono": 12808.822325, "component": "observer", "event": "BEGIN", "seq": 7, "request_id": "c3-2", "node": "node3", "client": "c3", "active": 5, "overlap": true}
+{"ts": 1793996796.667569, "mono": 12808.822498, "component": "observer", "event": "OVERLAP", "seq": 7, "request_id": "c3-2", "concurrent_with": ["c1-1", "c2-1", "c4-1", "c5-1"]}
+{"ts": 1793996796.670028, "mono": 12808.824961, "component": "observer", "event": "END", "seq": 8, "request_id": "c2-1", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996796.673242, "mono": 12808.828173, "component": "observer", "event": "BEGIN", "seq": 9, "request_id": "c2-2", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996796.673412, "mono": 12808.828341, "component": "observer", "event": "OVERLAP", "seq": 9, "request_id": "c2-2", "concurrent_with": ["c1-1", "c3-2", "c4-1", "c5-1"]}
+{"ts": 1793996796.893201, "mono": 12809.048145, "component": "observer", "event": "END", "seq": 10, "request_id": "c5-1", "node": "node5", "client": "c5", "active": 4}
+{"ts": 1793996796.903626, "mono": 12809.05857, "component": "observer", "event": "BEGIN", "seq": 11, "request_id": "c5-2", "node": "node5", "client": "c5", "active": 5, "overlap": true}
+{"ts": 1793996796.904377, "mono": 12809.059318, "component": "observer", "event": "OVERLAP", "seq": 11, "request_id": "c5-2", "concurrent_with": ["c1-1", "c2-2", "c3-2", "c4-1"]}
+{"ts": 1793996796.988817, "mono": 12809.143761, "component": "observer", "event": "END", "seq": 12, "request_id": "c3-2", "node": "node3", "client": "c3", "active": 4}
+{"ts": 1793996796.999403, "mono": 12809.154344, "component": "observer", "event": "BEGIN", "seq": 13, "request_id": "c3-3", "node": "node3", "client": "c3", "active": 5, "overlap": true}
+{"ts": 1793996797.000182, "mono": 12809.155124, "component": "observer", "event": "OVERLAP", "seq": 13, "request_id": "c3-3", "concurrent_with": ["c1-1", "c2-2", "c4-1", "c5-2"]}
+{"ts": 1793996797.156005, "mono": 12809.310937, "component": "observer", "event": "END", "seq": 14, "request_id": "c1-1", "node": "node1", "client": "c1", "active": 4}
+{"ts": 1793996797.159048, "mono": 12809.313978, "component": "observer", "event": "BEGIN", "seq": 15, "request_id": "c1-2", "node": "node1", "client": "c1", "active": 5, "overlap": true}
+{"ts": 1793996797.159259, "mono": 12809.314189, "component": "observer", "event": "OVERLAP", "seq": 15, "request_id": "c1-2", "concurrent_with": ["c2-2", "c3-3", "c4-1", "c5-2"]}
+{"ts": 1793996797.226539, "mono": 12809.381479, "component": "observer", "event": "END", "seq": 16, "request_id": "c4-1", "node": "node4", "client": "c4", "active": 4}
+{"ts": 1793996797.233546, "mono": 12809.388482, "component": "observer", "event": "BEGIN", "seq": 17, "request_id": "c4-2", "node": "node4", "client": "c4", "active": 5, "overlap": true}
+{"ts": 1793996797.233896, "mono": 12809.388829, "component": "observer", "event": "OVERLAP", "seq": 17, "request_id": "c4-2", "concurrent_with": ["c1-2", "c2-2", "c3-3", "c5-2"]}
+{"ts": 1793996797.260552, "mono": 12809.415495, "component": "observer", "event": "END", "seq": 18, "request_id": "c5-2", "node": "node5", "client": "c5", "active": 4}
+{"ts": 1793996797.27103, "mono": 12809.425969, "component": "observer", "event": "BEGIN", "seq": 19, "request_id": "c5-3", "node": "node5", "client": "c5", "active": 5, "overlap": true}
+{"ts": 1793996797.271406, "mono": 12809.426344, "component": "observer", "event": "OVERLAP", "seq": 19, "request_id": "c5-3", "concurrent_with": ["c1-2", "c2-2", "c3-3", "c4-2"]}
+{"ts": 1793996797.645033, "mono": 12809.799966, "component": "observer", "event": "END", "seq": 20, "request_id": "c2-2", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996797.64823, "mono": 12809.80316, "component": "observer", "event": "BEGIN", "seq": 21, "request_id": "c2-3", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996797.648472, "mono": 12809.803402, "component": "observer", "event": "OVERLAP", "seq": 21, "request_id": "c2-3", "concurrent_with": ["c1-2", "c3-3", "c4-2", "c5-3"]}
+{"ts": 1793996797.685339, "mono": 12809.840272, "component": "observer", "event": "END", "seq": 22, "request_id": "c3-3", "node": "node3", "client": "c3", "active": 4}
+{"ts": 1793996797.689104, "mono": 12809.844036, "component": "observer", "event": "BEGIN", "seq": 23, "request_id": "c3-4", "node": "node3", "client": "c3", "active": 5, "overlap": true}
+{"ts": 1793996797.689253, "mono": 12809.844183, "component": "observer", "event": "OVERLAP", "seq": 23, "request_id": "c3-4", "concurrent_with": ["c1-2", "c2-3", "c4-2", "c5-3"]}
+{"ts": 1793996797.79246, "mono": 12809.947401, "component": "observer", "event": "END", "seq": 24, "request_id": "c1-2", "node": "node1", "client": "c1", "active": 4}
+{"ts": 1793996797.802969, "mono": 12809.957911, "component": "observer", "event": "BEGIN", "seq": 25, "request_id": "c1-3", "node": "node1", "client": "c1", "active": 5, "overlap": true}
+{"ts": 1793996797.80335, "mono": 12809.958285, "component": "observer", "event": "OVERLAP", "seq": 25, "request_id": "c1-3", "concurrent_with": ["c2-3", "c3-4", "c4-2", "c5-3"]}
+{"ts": 1793996797.952002, "mono": 12810.106947, "component": "observer", "event": "END", "seq": 26, "request_id": "c2-3", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996797.961938, "mono": 12810.11688, "component": "observer", "event": "BEGIN", "seq": 27, "request_id": "c2-4", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996797.962687, "mono": 12810.117629, "component": "observer", "event": "OVERLAP", "seq": 27, "request_id": "c2-4", "concurrent_with": ["c1-3", "c3-4", "c4-2", "c5-3"]}
+{"ts": 1793996798.021796, "mono": 12810.176739, "component": "observer", "event": "END", "seq": 28, "request_id": "c4-2", "node": "node4", "client": "c4", "active": 4}
+{"ts": 1793996798.032172, "mono": 12810.187114, "component": "observer", "event": "BEGIN", "seq": 29, "request_id": "c4-3", "node": "node4", "client": "c4", "active": 5, "overlap": true}
+{"ts": 1793996798.032551, "mono": 12810.187489, "component": "observer", "event": "OVERLAP", "seq": 29, "request_id": "c4-3", "concurrent_with": ["c1-3", "c2-4", "c3-4", "c5-3"]}
+{"ts": 1793996798.193583, "mono": 12810.348529, "component": "observer", "event": "END", "seq": 30, "request_id": "c2-4", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996798.202288, "mono": 12810.357224, "component": "observer", "event": "BEGIN", "seq": 31, "request_id": "c2-5", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996798.202528, "mono": 12810.35746, "component": "observer", "event": "OVERLAP", "seq": 31, "request_id": "c2-5", "concurrent_with": ["c1-3", "c3-4", "c4-3", "c5-3"]}
+{"ts": 1793996798.263926, "mono": 12810.418859, "component": "observer", "event": "END", "seq": 32, "request_id": "c4-3", "node": "node4", "client": "c4", "active": 4}
+{"ts": 1793996798.264678, "mono": 12810.419609, "component": "observer", "event": "END", "seq": 33, "request_id": "c5-3", "node": "node5", "client": "c5", "active": 3}
+{"ts": 1793996798.267357, "mono": 12810.422286, "component": "observer", "event": "BEGIN", "seq": 34, "request_id": "c4-4", "node": "node4", "client": "c4", "active": 4, "overlap": true}
+{"ts": 1793996798.267881, "mono": 12810.422811, "component": "observer", "event": "OVERLAP", "seq": 34, "request_id": "c4-4", "concurrent_with": ["c1-3", "c2-5", "c3-4"]}
+{"ts": 1793996798.268171, "mono": 12810.423101, "component": "observer", "event": "BEGIN", "seq": 35, "request_id": "c5-4", "node": "node5", "client": "c5", "active": 5, "overlap": true}
+{"ts": 1793996798.268275, "mono": 12810.423203, "component": "observer", "event": "OVERLAP", "seq": 35, "request_id": "c5-4", "concurrent_with": ["c1-3", "c2-5", "c3-4", "c4-4"]}
+{"ts": 1793996798.275054, "mono": 12810.429983, "component": "observer", "event": "END", "seq": 36, "request_id": "c1-3", "node": "node1", "client": "c1", "active": 4}
+{"ts": 1793996798.277884, "mono": 12810.432814, "component": "observer", "event": "BEGIN", "seq": 37, "request_id": "c1-4", "node": "node1", "client": "c1", "active": 5, "overlap": true}
+{"ts": 1793996798.278091, "mono": 12810.43302, "component": "observer", "event": "OVERLAP", "seq": 37, "request_id": "c1-4", "concurrent_with": ["c2-5", "c3-4", "c4-4", "c5-4"]}
+{"ts": 1793996798.613349, "mono": 12810.768281, "component": "observer", "event": "END", "seq": 38, "request_id": "c5-4", "node": "node5", "client": "c5", "active": 4}
+{"ts": 1793996798.617051, "mono": 12810.771981, "component": "observer", "event": "END", "seq": 39, "request_id": "c3-4", "node": "node3", "client": "c3", "active": 3}
+{"ts": 1793996798.617516, "mono": 12810.772461, "component": "observer", "event": "BEGIN", "seq": 40, "request_id": "c5-5", "node": "node5", "client": "c5", "active": 4, "overlap": true}
+{"ts": 1793996798.61795, "mono": 12810.772879, "component": "observer", "event": "OVERLAP", "seq": 40, "request_id": "c5-5", "concurrent_with": ["c1-4", "c2-5", "c4-4"]}
+{"ts": 1793996798.620727, "mono": 12810.775658, "component": "observer", "event": "BEGIN", "seq": 41, "request_id": "c3-5", "node": "node3", "client": "c3", "active": 5, "overlap": true}
+{"ts": 1793996798.621001, "mono": 12810.77593, "component": "observer", "event": "OVERLAP", "seq": 41, "request_id": "c3-5", "concurrent_with": ["c1-4", "c2-5", "c4-4", "c5-5"]}
+{"ts": 1793996799.016513, "mono": 12811.171458, "component": "observer", "event": "END", "seq": 42, "request_id": "c4-4", "node": "node4", "client": "c4", "active": 4}
+{"ts": 1793996799.027993, "mono": 12811.182935, "component": "observer", "event": "BEGIN", "seq": 43, "request_id": "c4-5", "node": "node4", "client": "c4", "active": 5, "overlap": true}
+{"ts": 1793996799.0284, "mono": 12811.183336, "component": "observer", "event": "OVERLAP", "seq": 43, "request_id": "c4-5", "concurrent_with": ["c1-4", "c2-5", "c3-5", "c5-5"]}
+{"ts": 1793996799.096832, "mono": 12811.251777, "component": "observer", "event": "END", "seq": 44, "request_id": "c2-5", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996799.107661, "mono": 12811.262604, "component": "observer", "event": "BEGIN", "seq": 45, "request_id": "c2-6", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996799.108046, "mono": 12811.262984, "component": "observer", "event": "OVERLAP", "seq": 45, "request_id": "c2-6", "concurrent_with": ["c1-4", "c3-5", "c4-5", "c5-5"]}
+{"ts": 1793996799.22754, "mono": 12811.382478, "component": "observer", "event": "END", "seq": 46, "request_id": "c1-4", "node": "node1", "client": "c1", "active": 4}
+{"ts": 1793996799.235176, "mono": 12811.390113, "component": "observer", "event": "BEGIN", "seq": 47, "request_id": "c1-5", "node": "node1", "client": "c1", "active": 5, "overlap": true}
+{"ts": 1793996799.235445, "mono": 12811.390379, "component": "observer", "event": "OVERLAP", "seq": 47, "request_id": "c1-5", "concurrent_with": ["c2-6", "c3-5", "c4-5", "c5-5"]}
+{"ts": 1793996799.373813, "mono": 12811.528759, "component": "observer", "event": "END", "seq": 48, "request_id": "c3-5", "node": "node3", "client": "c3", "active": 4}
+{"ts": 1793996799.379075, "mono": 12811.534007, "component": "observer", "event": "BEGIN", "seq": 49, "request_id": "c3-6", "node": "node3", "client": "c3", "active": 5, "overlap": true}
+{"ts": 1793996799.379274, "mono": 12811.534203, "component": "observer", "event": "OVERLAP", "seq": 49, "request_id": "c3-6", "concurrent_with": ["c1-5", "c2-6", "c4-5", "c5-5"]}
+{"ts": 1793996799.395985, "mono": 12811.550918, "component": "observer", "event": "END", "seq": 50, "request_id": "c4-5", "node": "node4", "client": "c4", "active": 4}
+{"ts": 1793996799.399653, "mono": 12811.554587, "component": "observer", "event": "BEGIN", "seq": 51, "request_id": "c4-6", "node": "node4", "client": "c4", "active": 5, "overlap": true}
+{"ts": 1793996799.399783, "mono": 12811.554711, "component": "observer", "event": "OVERLAP", "seq": 51, "request_id": "c4-6", "concurrent_with": ["c1-5", "c2-6", "c3-6", "c5-5"]}
+{"ts": 1793996799.422544, "mono": 12811.577491, "component": "observer", "event": "END", "seq": 52, "request_id": "c2-6", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996799.429015, "mono": 12811.58396, "component": "observer", "event": "BEGIN", "seq": 53, "request_id": "c2-7", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996799.429133, "mono": 12811.584062, "component": "observer", "event": "OVERLAP", "seq": 53, "request_id": "c2-7", "concurrent_with": ["c1-5", "c3-6", "c4-6", "c5-5"]}
+{"ts": 1793996799.568916, "mono": 12811.723851, "component": "observer", "event": "END", "seq": 54, "request_id": "c5-5", "node": "node5", "client": "c5", "active": 4}
+{"ts": 1793996799.574167, "mono": 12811.7291, "component": "observer", "event": "BEGIN", "seq": 55, "request_id": "c5-6", "node": "node5", "client": "c5", "active": 5, "overlap": true}
+{"ts": 1793996799.574361, "mono": 12811.729292, "component": "observer", "event": "OVERLAP", "seq": 55, "request_id": "c5-6", "concurrent_with": ["c1-5", "c2-7", "c3-6", "c4-6"]}
+{"ts": 1793996799.635449, "mono": 12811.790386, "component": "observer", "event": "END", "seq": 56, "request_id": "c2-7", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996799.641356, "mono": 12811.796291, "component": "observer", "event": "BEGIN", "seq": 57, "request_id": "c2-8", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996799.641572, "mono": 12811.796504, "component": "observer", "event": "OVERLAP", "seq": 57, "request_id": "c2-8", "concurrent_with": ["c1-5", "c3-6", "c4-6", "c5-6"]}
+{"ts": 1793996799.732294, "mono": 12811.887238, "component": "observer", "event": "END", "seq": 58, "request_id": "c1-5", "node": "node1", "client": "c1", "active": 4}
+{"ts": 1793996799.741652, "mono": 12811.896593, "component": "observer", "event": "BEGIN", "seq": 59, "request_id": "c1-6", "node": "node1", "client": "c1", "active": 5, "overlap": true}
+{"ts": 1793996799.741995, "mono": 12811.896932, "component": "observer", "event": "OVERLAP", "seq": 59, "request_id": "c1-6", "concurrent_with": ["c2-8", "c3-6", "c4-6", "c5-6"]}
+{"ts": 1793996799.997413, "mono": 12812.152358, "component": "observer", "event": "END", "seq": 60, "request_id": "c2-8", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996800.008144, "mono": 12812.163086, "component": "observer", "event": "BEGIN", "seq": 61, "request_id": "c2-9", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996800.008543, "mono": 12812.163481, "component": "observer", "event": "OVERLAP", "seq": 61, "request_id": "c2-9", "concurrent_with": ["c1-6", "c3-6", "c4-6", "c5-6"]}
+{"ts": 1793996800.302242, "mono": 12812.457187, "component": "observer", "event": "END", "seq": 62, "request_id": "c3-6", "node": "node3", "client": "c3", "active": 4}
+{"ts": 1793996800.312429, "mono": 12812.467371, "component": "observer", "event": "BEGIN", "seq": 63, "request_id": "c3-7", "node": "node3", "client": "c3", "active": 5, "overlap": true}
+{"ts": 1793996800.312804, "mono": 12812.467742, "component": "observer", "event": "OVERLAP", "seq": 63, "request_id": "c3-7", "concurrent_with": ["c1-6", "c2-9", "c4-6", "c5-6"]}
+{"ts": 1793996800.367215, "mono": 12812.52216, "component": "observer", "event": "END", "seq": 64, "request_id": "c1-6", "node": "node1", "client": "c1", "active": 4}
+{"ts": 1793996800.37845, "mono": 12812.53339, "component": "observer", "event": "BEGIN", "seq": 65, "request_id": "c1-7", "node": "node1", "client": "c1", "active": 5, "overlap": true}
+{"ts": 1793996800.378893, "mono": 12812.533833, "component": "observer", "event": "OVERLAP", "seq": 65, "request_id": "c1-7", "concurrent_with": ["c2-9", "c3-7", "c4-6", "c5-6"]}
+{"ts": 1793996800.382796, "mono": 12812.537742, "component": "observer", "event": "END", "seq": 66, "request_id": "c4-6", "node": "node4", "client": "c4", "active": 4}
+{"ts": 1793996800.394209, "mono": 12812.549151, "component": "observer", "event": "BEGIN", "seq": 67, "request_id": "c4-7", "node": "node4", "client": "c4", "active": 5, "overlap": true}
+{"ts": 1793996800.394895, "mono": 12812.54983, "component": "observer", "event": "OVERLAP", "seq": 67, "request_id": "c4-7", "concurrent_with": ["c1-7", "c2-9", "c3-7", "c5-6"]}
+{"ts": 1793996800.488305, "mono": 12812.64325, "component": "observer", "event": "END", "seq": 68, "request_id": "c2-9", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996800.499007, "mono": 12812.65395, "component": "observer", "event": "BEGIN", "seq": 69, "request_id": "c2-10", "node": "node2", "client": "c2", "active": 5, "overlap": true}
+{"ts": 1793996800.499848, "mono": 12812.654788, "component": "observer", "event": "OVERLAP", "seq": 69, "request_id": "c2-10", "concurrent_with": ["c1-7", "c3-7", "c4-7", "c5-6"]}
+{"ts": 1793996800.547558, "mono": 12812.702491, "component": "observer", "event": "END", "seq": 70, "request_id": "c5-6", "node": "node5", "client": "c5", "active": 4}
+{"ts": 1793996800.550756, "mono": 12812.705686, "component": "observer", "event": "BEGIN", "seq": 71, "request_id": "c5-7", "node": "node5", "client": "c5", "active": 5, "overlap": true}
+{"ts": 1793996800.550976, "mono": 12812.705906, "component": "observer", "event": "OVERLAP", "seq": 71, "request_id": "c5-7", "concurrent_with": ["c1-7", "c2-10", "c3-7", "c4-7"]}
+{"ts": 1793996800.831213, "mono": 12812.986159, "component": "observer", "event": "END", "seq": 72, "request_id": "c3-7", "node": "node3", "client": "c3", "active": 4}
+{"ts": 1793996800.836105, "mono": 12812.991034, "component": "observer", "event": "BEGIN", "seq": 73, "request_id": "c3-8", "node": "node3", "client": "c3", "active": 5, "overlap": true}
+{"ts": 1793996800.836318, "mono": 12812.991248, "component": "observer", "event": "OVERLAP", "seq": 73, "request_id": "c3-8", "concurrent_with": ["c1-7", "c2-10", "c4-7", "c5-7"]}
+{"ts": 1793996801.057908, "mono": 12813.212853, "component": "observer", "event": "END", "seq": 74, "request_id": "c2-10", "node": "node2", "client": "c2", "active": 4}
+{"ts": 1793996801.12496, "mono": 12813.279893, "component": "observer", "event": "END", "seq": 75, "request_id": "c1-7", "node": "node1", "client": "c1", "active": 3}
+{"ts": 1793996801.128883, "mono": 12813.283814, "component": "observer", "event": "BEGIN", "seq": 76, "request_id": "c1-8", "node": "node1", "client": "c1", "active": 4, "overlap": true}
+{"ts": 1793996801.129019, "mono": 12813.283949, "component": "observer", "event": "OVERLAP", "seq": 76, "request_id": "c1-8", "concurrent_with": ["c3-8", "c4-7", "c5-7"]}
+{"ts": 1793996801.227874, "mono": 12813.382808, "component": "observer", "event": "END", "seq": 77, "request_id": "c3-8", "node": "node3", "client": "c3", "active": 3}
+{"ts": 1793996801.231652, "mono": 12813.386584, "component": "observer", "event": "BEGIN", "seq": 78, "request_id": "c3-9", "node": "node3", "client": "c3", "active": 4, "overlap": true}
+{"ts": 1793996801.231839, "mono": 12813.386769, "component": "observer", "event": "OVERLAP", "seq": 78, "request_id": "c3-9", "concurrent_with": ["c1-8", "c4-7", "c5-7"]}
+{"ts": 1793996801.344932, "mono": 12813.499877, "component": "observer", "event": "END", "seq": 79, "request_id": "c4-7", "node": "node4", "client": "c4", "active": 3}
+{"ts": 1793996801.355453, "mono": 12813.510395, "component": "observer", "event": "BEGIN", "seq": 80, "request_id": "c4-8", "node": "node4", "client": "c4", "active": 4, "overlap": true}
+{"ts": 1793996801.35583, "mono": 12813.510766, "component": "observer", "event": "OVERLAP", "seq": 80, "request_id": "c4-8", "concurrent_with": ["c1-8", "c3-9", "c5-7"]}
+{"ts": 1793996801.384878, "mono": 12813.539823, "component": "observer", "event": "END", "seq": 81, "request_id": "c5-7", "node": "node5", "client": "c5", "active": 3}
+{"ts": 1793996801.395311, "mono": 12813.550252, "component": "observer", "event": "BEGIN", "seq": 82, "request_id": "c5-8", "node": "node5", "client": "c5", "active": 4, "overlap": true}
+{"ts": 1793996801.3957, "mono": 12813.550636, "component": "observer", "event": "OVERLAP", "seq": 82, "request_id": "c5-8", "concurrent_with": ["c1-8", "c3-9", "c4-8"]}
+{"ts": 1793996801.547228, "mono": 12813.70216, "component": "observer", "event": "END", "seq": 83, "request_id": "c1-8", "node": "node1", "client": "c1", "active": 3}
+{"ts": 1793996801.550748, "mono": 12813.705679, "component": "observer", "event": "BEGIN", "seq": 84, "request_id": "c1-9", "node": "node1", "client": "c1", "active": 4, "overlap": true}
+{"ts": 1793996801.550932, "mono": 12813.705861, "component": "observer", "event": "OVERLAP", "seq": 84, "request_id": "c1-9", "concurrent_with": ["c3-9", "c4-8", "c5-8"]}
+{"ts": 1793996801.78377, "mono": 12813.938713, "component": "observer", "event": "END", "seq": 85, "request_id": "c3-9", "node": "node3", "client": "c3", "active": 3}
+{"ts": 1793996801.795087, "mono": 12813.95003, "component": "observer", "event": "BEGIN", "seq": 86, "request_id": "c3-10", "node": "node3", "client": "c3", "active": 4, "overlap": true}
+{"ts": 1793996801.795817, "mono": 12813.950758, "component": "observer", "event": "OVERLAP", "seq": 86, "request_id": "c3-10", "concurrent_with": ["c1-9", "c4-8", "c5-8"]}
+{"ts": 1793996801.81567, "mono": 12813.970609, "component": "observer", "event": "END", "seq": 87, "request_id": "c1-9", "node": "node1", "client": "c1", "active": 3}
+{"ts": 1793996801.825528, "mono": 12813.98047, "component": "observer", "event": "BEGIN", "seq": 88, "request_id": "c1-10", "node": "node1", "client": "c1", "active": 4, "overlap": true}
+{"ts": 1793996801.825901, "mono": 12813.980839, "component": "observer", "event": "OVERLAP", "seq": 88, "request_id": "c1-10", "concurrent_with": ["c3-10", "c4-8", "c5-8"]}
+{"ts": 1793996801.998677, "mono": 12814.153608, "component": "observer", "event": "END", "seq": 89, "request_id": "c4-8", "node": "node4", "client": "c4", "active": 3}
+{"ts": 1793996802.001792, "mono": 12814.156722, "component": "observer", "event": "BEGIN", "seq": 90, "request_id": "c4-9", "node": "node4", "client": "c4", "active": 4, "overlap": true}
+{"ts": 1793996802.001997, "mono": 12814.156926, "component": "observer", "event": "OVERLAP", "seq": 90, "request_id": "c4-9", "concurrent_with": ["c1-10", "c3-10", "c5-8"]}
+{"ts": 1793996802.244096, "mono": 12814.399028, "component": "observer", "event": "END", "seq": 91, "request_id": "c4-9", "node": "node4", "client": "c4", "active": 3}
+{"ts": 1793996802.247381, "mono": 12814.402311, "component": "observer", "event": "BEGIN", "seq": 92, "request_id": "c4-10", "node": "node4", "client": "c4", "active": 4, "overlap": true}
+{"ts": 1793996802.247588, "mono": 12814.402517, "component": "observer", "event": "OVERLAP", "seq": 92, "request_id": "c4-10", "concurrent_with": ["c1-10", "c3-10", "c5-8"]}
+{"ts": 1793996802.286336, "mono": 12814.441271, "component": "observer", "event": "END", "seq": 93, "request_id": "c5-8", "node": "node5", "client": "c5", "active": 3}
+{"ts": 1793996802.291368, "mono": 12814.446301, "component": "observer", "event": "BEGIN", "seq": 94, "request_id": "c5-9", "node": "node5", "client": "c5", "active": 4, "overlap": true}
+{"ts": 1793996802.291537, "mono": 12814.446467, "component": "observer", "event": "OVERLAP", "seq": 94, "request_id": "c5-9", "concurrent_with": ["c1-10", "c3-10", "c4-10"]}
+{"ts": 1793996802.605406, "mono": 12814.760351, "component": "observer", "event": "END", "seq": 95, "request_id": "c1-10", "node": "node1", "client": "c1", "active": 3}
+{"ts": 1793996802.663615, "mono": 12814.81855, "component": "observer", "event": "END", "seq": 96, "request_id": "c3-10", "node": "node3", "client": "c3", "active": 2}
+{"ts": 1793996803.036645, "mono": 12815.19159, "component": "observer", "event": "END", "seq": 97, "request_id": "c4-10", "node": "node4", "client": "c4", "active": 1}
+{"ts": 1793996803.088961, "mono": 12815.243896, "component": "observer", "event": "END", "seq": 98, "request_id": "c5-9", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793996803.092925, "mono": 12815.247857, "component": "observer", "event": "BEGIN", "seq": 99, "request_id": "c5-10", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793996803.970054, "mono": 12816.124999, "component": "observer", "event": "END", "seq": 100, "request_id": "c5-10", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793996804.471252, "mono": 12816.626201, "component": "observer", "event": "OBSERVER_STOP", "active": 0, "max_active": 5, "violations": 48, "begins": 50, "ends": 50}

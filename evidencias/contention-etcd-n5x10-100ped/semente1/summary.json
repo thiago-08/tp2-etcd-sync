@@ -1,0 +1,157 @@
+{
+  "checks": [
+    {
+      "name": "Exclusão mútua (observador)",
+      "ok": true,
+      "detail": "máx. acessos simultâneos = 1, sobreposições = 0"
+    },
+    {
+      "name": "Todo BEGIN tem END",
+      "ok": true,
+      "detail": "BEGIN=100, END=100"
+    },
+    {
+      "name": "Todos os pedidos concluídos (progresso)",
+      "ok": true,
+      "detail": "planejados=100, COMMITTED nos nós=100, recebidos pelos clientes=100"
+    },
+    {
+      "name": "Ciclo de vida REQUEST→…→COMMITTED em ordem",
+      "ok": true,
+      "detail": "ok em todos os pedidos"
+    },
+    {
+      "name": "Ordem de entrada = ordem de create_revision (FIFO)",
+      "ok": true,
+      "detail": "100 entradas verificadas"
+    }
+  ],
+  "metrics": {
+    "config": {
+      "sync_mode": "etcd",
+      "seed": "1",
+      "cs_min": 0.2,
+      "cs_max": 1.0
+    },
+    "nodes": 5,
+    "clients": 10,
+    "pedidos_concluidos": 100,
+    "tempo_total_s": 62.753,
+    "vazao_acessos_por_s": 1.594,
+    "espera_mediana_s": 5.613,
+    "espera_media_s": 5.39,
+    "espera_p95_s": 6.511,
+    "espera_max_s": 7.095,
+    "cs_media_s": 0.606,
+    "operacoes_etcd_por_entrada": 7.64,
+    "notificacoes_watch_por_entrada": 0.98,
+    "max_acessos_simultaneos": 1,
+    "sobreposicoes": 0,
+    "acessos_por_cliente": {
+      "c1": 10,
+      "c10": 10,
+      "c2": 10,
+      "c3": 10,
+      "c4": 10,
+      "c5": 10,
+      "c6": 10,
+      "c7": 10,
+      "c8": 10,
+      "c9": 10
+    },
+    "espera_mediana_por_cliente_s": {
+      "c1": 5.651,
+      "c10": 5.395,
+      "c2": 5.767,
+      "c3": 5.661,
+      "c4": 5.612,
+      "c5": 5.516,
+      "c6": 5.717,
+      "c7": 5.915,
+      "c8": 5.454,
+      "c9": 5.385
+    },
+    "config_clientes": {
+      "c1": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c10": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c2": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c3": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c4": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c5": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c6": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c7": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c8": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c9": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      }
+    }
+  }
+}

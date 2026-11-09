@@ -1,0 +1,107 @@
+{
+  "checks": [
+    {
+      "name": "Exclusão mútua (observador)",
+      "ok": true,
+      "detail": "máx. acessos simultâneos = 1, sobreposições = 0"
+    },
+    {
+      "name": "Todo BEGIN tem END",
+      "ok": true,
+      "detail": "BEGIN=50, END=50"
+    },
+    {
+      "name": "Todos os pedidos concluídos (progresso)",
+      "ok": true,
+      "detail": "planejados=50, COMMITTED nos nós=50, recebidos pelos clientes=50"
+    },
+    {
+      "name": "Ciclo de vida REQUEST→…→COMMITTED em ordem",
+      "ok": true,
+      "detail": "ok em todos os pedidos"
+    },
+    {
+      "name": "Ordem de entrada = ordem de create_revision (FIFO)",
+      "ok": true,
+      "detail": "50 entradas verificadas"
+    }
+  ],
+  "metrics": {
+    "config": {
+      "sync_mode": "etcd",
+      "seed": "1",
+      "cs_min": 0.2,
+      "cs_max": 1.0
+    },
+    "nodes": 5,
+    "clients": 5,
+    "pedidos_concluidos": 50,
+    "tempo_total_s": 32.57,
+    "vazao_acessos_por_s": 1.535,
+    "espera_mediana_s": 2.504,
+    "espera_media_s": 2.465,
+    "espera_p95_s": 3.372,
+    "espera_max_s": 3.57,
+    "cs_media_s": 0.632,
+    "operacoes_etcd_por_entrada": 5.96,
+    "notificacoes_watch_por_entrada": 0.98,
+    "max_acessos_simultaneos": 1,
+    "sobreposicoes": 0,
+    "acessos_por_cliente": {
+      "c1": 10,
+      "c2": 10,
+      "c3": 10,
+      "c4": 10,
+      "c5": 10
+    },
+    "espera_mediana_por_cliente_s": {
+      "c1": 2.453,
+      "c2": 2.831,
+      "c3": 2.471,
+      "c4": 2.486,
+      "c5": 2.541
+    },
+    "config_clientes": {
+      "c1": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c2": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c3": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c4": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      },
+      "c5": {
+        "planned": 10,
+        "think": [
+          0.0,
+          0.0
+        ],
+        "heavy": false
+      }
+    }
+  }
+}

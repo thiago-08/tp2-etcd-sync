@@ -1,0 +1,188 @@
+{"ts": 1794262764.830573, "mono": 2785.134883, "component": "node1", "event": "SESSION_START", "lease": "0x694da1c247d7d360", "ttl": 10}
+{"ts": 1794262764.831222, "mono": 2785.135524, "component": "node1", "event": "NODE_START", "port": 18001, "sync_mode": "etcd", "seed": "1", "resource": "R", "cs_min": 0.2, "cs_max": 1.0, "semaphore_k": 0, "stage": "S", "stage_min": 0.2, "stage_max": 1.0}
+{"ts": 1794262768.116656, "mono": 2788.420966, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-1"}
+{"ts": 1794262768.137328, "mono": 2788.44166, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-1", "resource": "R", "key": "/clustersync/locks/R/c1-1", "create_rev": 3048, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262768.139611, "mono": 2788.443914, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-1", "resource": "R", "owner": "c5-1", "owner_rev": 3044, "watching": "c3-1", "watching_rev": 3047, "ahead": 4}
+{"ts": 1794262770.645171, "mono": 2790.949475, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-1", "resource": "R", "reason": "event", "watched": "c3-1"}
+{"ts": 1794262770.647095, "mono": 2790.951396, "component": "node1", "event": "ACQUIRE", "wait_s": 2.530239, "create_rev": 3048, "queued_ahead": 4, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-1"}
+{"ts": 1794262770.649105, "mono": 2790.95341, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-1"}
+{"ts": 1794262771.555108, "mono": 2791.85941, "component": "node1", "event": "EXIT", "cs_s": 0.903871, "node": "node1", "client": "c1", "request_id": "c1-1"}
+{"ts": 1794262771.562221, "mono": 2791.866527, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-1", "resource": "R", "key": "/clustersync/locks/R/c1-1", "deleted": true}
+{"ts": 1794262771.562404, "mono": 2791.866704, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-1"}
+{"ts": 1794262771.562457, "mono": 2791.866756, "component": "node1", "event": "COMMITTED", "total_s": 3.445805, "node": "node1", "client": "c1", "request_id": "c1-1"}
+{"ts": 1794262772.873549, "mono": 2794.020733, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-2"}
+{"ts": 1794262772.882865, "mono": 2794.030051, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-2", "resource": "R", "key": "/clustersync/locks/R/c1-2", "create_rev": 3057, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262772.884604, "mono": 2794.031791, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-2", "resource": "R", "owner": "c2-2", "owner_rev": 3056, "watching": "c2-2", "watching_rev": 3056, "ahead": 1}
+{"ts": 1794262773.256195, "mono": 2794.403377, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-2", "resource": "R", "reason": "event", "watched": "c2-2"}
+{"ts": 1794262773.258096, "mono": 2794.405277, "component": "node1", "event": "ACQUIRE", "wait_s": 0.384369, "create_rev": 3057, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-2"}
+{"ts": 1794262773.259515, "mono": 2794.406697, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-2"}
+{"ts": 1794262773.891712, "mono": 2795.038895, "component": "node1", "event": "EXIT", "cs_s": 0.629389, "node": "node1", "client": "c1", "request_id": "c1-2"}
+{"ts": 1794262773.899896, "mono": 2795.047084, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-2", "resource": "R", "key": "/clustersync/locks/R/c1-2", "deleted": true}
+{"ts": 1794262773.900047, "mono": 2795.047227, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-2"}
+{"ts": 1794262773.900115, "mono": 2795.047294, "component": "node1", "event": "COMMITTED", "total_s": 1.026566, "node": "node1", "client": "c1", "request_id": "c1-2"}
+{"ts": 1794262777.438294, "mono": 2798.585479, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-3"}
+{"ts": 1794262777.449651, "mono": 2798.596837, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-3", "resource": "R", "key": "/clustersync/locks/R/c1-3", "create_rev": 3068, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262777.450814, "mono": 2798.597996, "component": "node1", "event": "ACQUIRE", "wait_s": 0.012209, "create_rev": 3068, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-3"}
+{"ts": 1794262777.452446, "mono": 2798.599645, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-3"}
+{"ts": 1794262777.926177, "mono": 2799.073363, "component": "node1", "event": "EXIT", "cs_s": 0.469147, "node": "node1", "client": "c1", "request_id": "c1-3"}
+{"ts": 1794262777.960594, "mono": 2799.107841, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-3", "resource": "R", "key": "/clustersync/locks/R/c1-3", "deleted": true}
+{"ts": 1794262777.960985, "mono": 2799.108171, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-3"}
+{"ts": 1794262777.961118, "mono": 2799.1083, "component": "node1", "event": "COMMITTED", "total_s": 0.522821, "node": "node1", "client": "c1", "request_id": "c1-3"}
+{"ts": 1794262779.711558, "mono": 2800.858745, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-4"}
+{"ts": 1794262779.748758, "mono": 2800.895944, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-4", "resource": "R", "key": "/clustersync/locks/R/c1-4", "create_rev": 3076, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262779.750213, "mono": 2800.897394, "component": "node1", "event": "ACQUIRE", "wait_s": 0.038449, "create_rev": 3076, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-4"}
+{"ts": 1794262779.751879, "mono": 2800.899062, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-4"}
+{"ts": 1794262780.701297, "mono": 2801.84848, "component": "node1", "event": "EXIT", "cs_s": 0.946517, "node": "node1", "client": "c1", "request_id": "c1-4"}
+{"ts": 1794262780.821501, "mono": 2801.968692, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-4", "resource": "R", "key": "/clustersync/locks/R/c1-4", "deleted": true}
+{"ts": 1794262780.821683, "mono": 2801.968866, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-4"}
+{"ts": 1794262780.821764, "mono": 2801.968944, "component": "node1", "event": "COMMITTED", "total_s": 1.110206, "node": "node1", "client": "c1", "request_id": "c1-4"}
+{"ts": 1794262782.198874, "mono": 2803.346062, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-5"}
+{"ts": 1794262782.227618, "mono": 2803.374809, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-5", "resource": "R", "key": "/clustersync/locks/R/c1-5", "create_rev": 3083, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262782.230292, "mono": 2803.377483, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-5", "resource": "R", "owner": "c3-4", "owner_rev": 3080, "watching": "c3-4", "watching_rev": 3080, "ahead": 1}
+{"ts": 1794262782.872731, "mono": 2804.019921, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-5", "resource": "R", "reason": "event", "watched": "c3-4"}
+{"ts": 1794262782.876579, "mono": 2804.023764, "component": "node1", "event": "ACQUIRE", "wait_s": 0.677462, "create_rev": 3083, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-5"}
+{"ts": 1794262782.879848, "mono": 2804.027039, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-5"}
+{"ts": 1794262783.376526, "mono": 2804.52371, "component": "node1", "event": "EXIT", "cs_s": 0.492954, "node": "node1", "client": "c1", "request_id": "c1-5"}
+{"ts": 1794262783.413882, "mono": 2804.561076, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-5", "resource": "R", "key": "/clustersync/locks/R/c1-5", "deleted": true}
+{"ts": 1794262783.414227, "mono": 2804.561413, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-5"}
+{"ts": 1794262783.414354, "mono": 2804.561535, "component": "node1", "event": "COMMITTED", "total_s": 1.215479, "node": "node1", "client": "c1", "request_id": "c1-5"}
+{"ts": 1794262787.931229, "mono": 2809.078419, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-6"}
+{"ts": 1794262787.941745, "mono": 2809.088936, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-6", "resource": "R", "key": "/clustersync/locks/R/c1-6", "create_rev": 3093, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262787.944059, "mono": 2809.091248, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-6", "resource": "R", "owner": "c3-5", "owner_rev": 3092, "watching": "c3-5", "watching_rev": 3092, "ahead": 1}
+{"ts": 1794262788.154862, "mono": 2809.302052, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-6", "resource": "R", "reason": "event", "watched": "c3-5"}
+{"ts": 1794262788.158325, "mono": 2809.30551, "component": "node1", "event": "ACQUIRE", "wait_s": 0.226855, "create_rev": 3093, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-6"}
+{"ts": 1794262788.161698, "mono": 2809.308888, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-6"}
+{"ts": 1794262788.784483, "mono": 2809.931666, "component": "node1", "event": "EXIT", "cs_s": 0.619723, "node": "node1", "client": "c1", "request_id": "c1-6"}
+{"ts": 1794262788.791566, "mono": 2809.938757, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-6", "resource": "R", "key": "/clustersync/locks/R/c1-6", "deleted": true}
+{"ts": 1794262788.79182, "mono": 2809.939004, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-6"}
+{"ts": 1794262788.791922, "mono": 2809.939103, "component": "node1", "event": "COMMITTED", "total_s": 0.860692, "node": "node1", "client": "c1", "request_id": "c1-6"}
+{"ts": 1794262792.195866, "mono": 2813.343056, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-7"}
+{"ts": 1794262792.207466, "mono": 2813.35466, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-7", "resource": "R", "key": "/clustersync/locks/R/c1-7", "create_rev": 3105, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262792.209925, "mono": 2813.357113, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-7", "resource": "R", "owner": "c5-7", "owner_rev": 3103, "watching": "c5-7", "watching_rev": 3103, "ahead": 1}
+{"ts": 1794262792.899442, "mono": 2814.046629, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-7", "resource": "R", "reason": "event", "watched": "c5-7"}
+{"ts": 1794262792.903288, "mono": 2814.050471, "component": "node1", "event": "ACQUIRE", "wait_s": 0.706893, "create_rev": 3105, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-7"}
+{"ts": 1794262792.905752, "mono": 2814.052937, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-7"}
+{"ts": 1794262793.650667, "mono": 2814.797849, "component": "node1", "event": "EXIT", "cs_s": 0.742594, "node": "node1", "client": "c1", "request_id": "c1-7"}
+{"ts": 1794262793.656621, "mono": 2814.803809, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-7", "resource": "R", "key": "/clustersync/locks/R/c1-7", "deleted": true}
+{"ts": 1794262793.656798, "mono": 2814.80398, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-7"}
+{"ts": 1794262793.656898, "mono": 2814.804078, "component": "node1", "event": "COMMITTED", "total_s": 1.461034, "node": "node1", "client": "c1", "request_id": "c1-7"}
+{"ts": 1794262795.263654, "mono": 2816.410847, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-8"}
+{"ts": 1794262795.275954, "mono": 2816.423144, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-8", "resource": "R", "key": "/clustersync/locks/R/c1-8", "create_rev": 3113, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262795.278186, "mono": 2816.425376, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-8", "resource": "R", "owner": "c3-7", "owner_rev": 3109, "watching": "c3-7", "watching_rev": 3109, "ahead": 1}
+{"ts": 1794262795.37146, "mono": 2816.518642, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-8", "resource": "R", "reason": "event", "watched": "c3-7"}
+{"ts": 1794262795.37323, "mono": 2816.520409, "component": "node1", "event": "ACQUIRE", "wait_s": 0.109245, "create_rev": 3113, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-8"}
+{"ts": 1794262795.374802, "mono": 2816.521985, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-8"}
+{"ts": 1794262795.795967, "mono": 2816.943153, "component": "node1", "event": "EXIT", "cs_s": 0.416548, "node": "node1", "client": "c1", "request_id": "c1-8"}
+{"ts": 1794262795.805183, "mono": 2816.952376, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-8", "resource": "R", "key": "/clustersync/locks/R/c1-8", "deleted": true}
+{"ts": 1794262795.805456, "mono": 2816.952641, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-8"}
+{"ts": 1794262795.805573, "mono": 2816.952754, "component": "node1", "event": "COMMITTED", "total_s": 0.54192, "node": "node1", "client": "c1", "request_id": "c1-8"}
+{"ts": 1794262800.572686, "mono": 2821.719869, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-9"}
+{"ts": 1794262800.579718, "mono": 2821.726905, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-9", "resource": "R", "key": "/clustersync/locks/R/c1-9", "create_rev": 3128, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262800.580987, "mono": 2821.728168, "component": "node1", "event": "ACQUIRE", "wait_s": 0.008014, "create_rev": 3128, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-9"}
+{"ts": 1794262800.582623, "mono": 2821.729807, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-9"}
+{"ts": 1794262800.846457, "mono": 2821.993639, "component": "node1", "event": "EXIT", "cs_s": 0.261044, "node": "node1", "client": "c1", "request_id": "c1-9"}
+{"ts": 1794262800.854416, "mono": 2822.001603, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-9", "resource": "R", "key": "/clustersync/locks/R/c1-9", "deleted": true}
+{"ts": 1794262800.854553, "mono": 2822.001734, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-9"}
+{"ts": 1794262800.854601, "mono": 2822.00178, "component": "node1", "event": "COMMITTED", "total_s": 0.281915, "node": "node1", "client": "c1", "request_id": "c1-9"}
+{"ts": 1794262802.47227, "mono": 2824.435382, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-10"}
+{"ts": 1794262802.480518, "mono": 2824.443634, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-10", "resource": "R", "key": "/clustersync/locks/R/c1-10", "create_rev": 3136, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262802.48175, "mono": 2824.444859, "component": "node1", "event": "ACQUIRE", "wait_s": 0.009359, "create_rev": 3136, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-10"}
+{"ts": 1794262802.483331, "mono": 2824.446443, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-10"}
+{"ts": 1794262803.259562, "mono": 2825.222673, "component": "node1", "event": "EXIT", "cs_s": 0.774251, "node": "node1", "client": "c1", "request_id": "c1-10"}
+{"ts": 1794262803.266683, "mono": 2825.2298, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-10", "resource": "R", "key": "/clustersync/locks/R/c1-10", "deleted": true}
+{"ts": 1794262803.266923, "mono": 2825.230034, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-10"}
+{"ts": 1794262803.266981, "mono": 2825.230089, "component": "node1", "event": "COMMITTED", "total_s": 0.794711, "node": "node1", "client": "c1", "request_id": "c1-10"}
+{"ts": 1794262805.074658, "mono": 2827.037774, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-11"}
+{"ts": 1794262805.08673, "mono": 2827.049849, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-11", "resource": "R", "key": "/clustersync/locks/R/c1-11", "create_rev": 3140, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262805.088809, "mono": 2827.051923, "component": "node1", "event": "ACQUIRE", "wait_s": 0.013855, "create_rev": 3140, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-11"}
+{"ts": 1794262805.091287, "mono": 2827.054403, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-11"}
+{"ts": 1794262805.554036, "mono": 2827.51715, "component": "node1", "event": "EXIT", "cs_s": 0.458832, "node": "node1", "client": "c1", "request_id": "c1-11"}
+{"ts": 1794262805.563725, "mono": 2827.52685, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-11", "resource": "R", "key": "/clustersync/locks/R/c1-11", "deleted": true}
+{"ts": 1794262805.564041, "mono": 2827.527157, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-11"}
+{"ts": 1794262805.564185, "mono": 2827.527296, "component": "node1", "event": "COMMITTED", "total_s": 0.489523, "node": "node1", "client": "c1", "request_id": "c1-11"}
+{"ts": 1794262808.079083, "mono": 2830.042197, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-12"}
+{"ts": 1794262808.086606, "mono": 2830.049723, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-12", "resource": "R", "key": "/clustersync/locks/R/c1-12", "create_rev": 3149, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262808.088217, "mono": 2830.051333, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-12", "resource": "R", "owner": "c5-11", "owner_rev": 3146, "watching": "c5-11", "watching_rev": 3146, "ahead": 1}
+{"ts": 1794262808.505961, "mono": 2830.469079, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-12", "resource": "R", "reason": "event", "watched": "c5-11"}
+{"ts": 1794262808.508176, "mono": 2830.471289, "component": "node1", "event": "ACQUIRE", "wait_s": 0.428802, "create_rev": 3149, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-12"}
+{"ts": 1794262808.511391, "mono": 2830.474508, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-12"}
+{"ts": 1794262809.062121, "mono": 2831.025233, "component": "node1", "event": "EXIT", "cs_s": 0.548113, "node": "node1", "client": "c1", "request_id": "c1-12"}
+{"ts": 1794262809.085466, "mono": 2831.048582, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-12", "resource": "R", "key": "/clustersync/locks/R/c1-12", "deleted": true}
+{"ts": 1794262809.085628, "mono": 2831.048738, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-12"}
+{"ts": 1794262809.085725, "mono": 2831.048834, "component": "node1", "event": "COMMITTED", "total_s": 1.006643, "node": "node1", "client": "c1", "request_id": "c1-12"}
+{"ts": 1794262811.675146, "mono": 2833.638263, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-13"}
+{"ts": 1794262811.684797, "mono": 2833.647916, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-13", "resource": "R", "key": "/clustersync/locks/R/c1-13", "create_rev": 3156, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262811.686416, "mono": 2833.649526, "component": "node1", "event": "ACQUIRE", "wait_s": 0.011018, "create_rev": 3156, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-13"}
+{"ts": 1794262811.687832, "mono": 2833.650944, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-13"}
+{"ts": 1794262812.528914, "mono": 2834.492027, "component": "node1", "event": "EXIT", "cs_s": 0.837793, "node": "node1", "client": "c1", "request_id": "c1-13"}
+{"ts": 1794262812.537537, "mono": 2834.500658, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-13", "resource": "R", "key": "/clustersync/locks/R/c1-13", "deleted": true}
+{"ts": 1794262812.537822, "mono": 2834.500937, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-13"}
+{"ts": 1794262812.537979, "mono": 2834.50109, "component": "node1", "event": "COMMITTED", "total_s": 0.86283, "node": "node1", "client": "c1", "request_id": "c1-13"}
+{"ts": 1794262816.025958, "mono": 2837.989074, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-14"}
+{"ts": 1794262816.035814, "mono": 2837.998935, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-14", "resource": "R", "key": "/clustersync/locks/R/c1-14", "create_rev": 3166, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262816.037798, "mono": 2838.00091, "component": "node1", "event": "ACQUIRE", "wait_s": 0.01152, "create_rev": 3166, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-14"}
+{"ts": 1794262816.040377, "mono": 2838.003493, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-14"}
+{"ts": 1794262816.408117, "mono": 2838.37123, "component": "node1", "event": "EXIT", "cs_s": 0.364156, "node": "node1", "client": "c1", "request_id": "c1-14"}
+{"ts": 1794262816.415595, "mono": 2838.378718, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-14", "resource": "R", "key": "/clustersync/locks/R/c1-14", "deleted": true}
+{"ts": 1794262816.415901, "mono": 2838.379016, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-14"}
+{"ts": 1794262816.416023, "mono": 2838.379134, "component": "node1", "event": "COMMITTED", "total_s": 0.390063, "node": "node1", "client": "c1", "request_id": "c1-14"}
+{"ts": 1794262820.485614, "mono": 2842.448727, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-15"}
+{"ts": 1794262820.493471, "mono": 2842.456588, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-15", "resource": "R", "key": "/clustersync/locks/R/c1-15", "create_rev": 3180, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262820.494736, "mono": 2842.45785, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-15", "resource": "R", "owner": "c2-14", "owner_rev": 3177, "watching": "c4-14", "watching_rev": 3179, "ahead": 2}
+{"ts": 1794262821.344005, "mono": 2843.307122, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-15", "resource": "R", "reason": "event", "watched": "c4-14"}
+{"ts": 1794262821.346918, "mono": 2843.310031, "component": "node1", "event": "ACQUIRE", "wait_s": 0.861068, "create_rev": 3180, "queued_ahead": 2, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-15"}
+{"ts": 1794262821.350146, "mono": 2843.313263, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-15"}
+{"ts": 1794262821.967266, "mono": 2843.930376, "component": "node1", "event": "EXIT", "cs_s": 0.614752, "node": "node1", "client": "c1", "request_id": "c1-15"}
+{"ts": 1794262821.97239, "mono": 2843.935505, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-15", "resource": "R", "key": "/clustersync/locks/R/c1-15", "deleted": true}
+{"ts": 1794262821.972553, "mono": 2843.935664, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-15"}
+{"ts": 1794262821.972603, "mono": 2843.935711, "component": "node1", "event": "COMMITTED", "total_s": 1.486988, "node": "node1", "client": "c1", "request_id": "c1-15"}
+{"ts": 1794262825.086798, "mono": 2847.049911, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-16"}
+{"ts": 1794262825.095263, "mono": 2847.058379, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-16", "resource": "R", "key": "/clustersync/locks/R/c1-16", "create_rev": 3191, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262825.096796, "mono": 2847.059913, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-16", "resource": "R", "owner": "c4-15", "owner_rev": 3188, "watching": "c4-15", "watching_rev": 3188, "ahead": 1}
+{"ts": 1794262825.472291, "mono": 2847.435403, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-16", "resource": "R", "reason": "event", "watched": "c4-15"}
+{"ts": 1794262825.474004, "mono": 2847.437114, "component": "node1", "event": "ACQUIRE", "wait_s": 0.386924, "create_rev": 3191, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-16"}
+{"ts": 1794262825.475434, "mono": 2847.438545, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-16"}
+{"ts": 1794262826.366102, "mono": 2848.329215, "component": "node1", "event": "EXIT", "cs_s": 0.887824, "node": "node1", "client": "c1", "request_id": "c1-16"}
+{"ts": 1794262826.408637, "mono": 2848.371753, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-16", "resource": "R", "key": "/clustersync/locks/R/c1-16", "deleted": true}
+{"ts": 1794262826.408777, "mono": 2848.371888, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-16"}
+{"ts": 1794262826.408828, "mono": 2848.371936, "component": "node1", "event": "COMMITTED", "total_s": 1.32203, "node": "node1", "client": "c1", "request_id": "c1-16"}
+{"ts": 1794262830.436584, "mono": 2852.399698, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-17"}
+{"ts": 1794262830.446237, "mono": 2852.409354, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-17", "resource": "R", "key": "/clustersync/locks/R/c1-17", "create_rev": 3203, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262830.447673, "mono": 2852.410789, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-17", "resource": "R", "owner": "c5-17", "owner_rev": 3202, "watching": "c5-17", "watching_rev": 3202, "ahead": 1}
+{"ts": 1794262830.996306, "mono": 2852.959418, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-17", "resource": "R", "reason": "event", "watched": "c5-17"}
+{"ts": 1794262830.99796, "mono": 2852.96107, "component": "node1", "event": "ACQUIRE", "wait_s": 0.561168, "create_rev": 3203, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-17"}
+{"ts": 1794262830.999493, "mono": 2852.962606, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-17"}
+{"ts": 1794262830.725622, "mono": 2853.558562, "component": "node1", "event": "EXIT", "cs_s": 0.594142, "node": "node1", "client": "c1", "request_id": "c1-17"}
+{"ts": 1794262830.731057, "mono": 2853.564003, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-17", "resource": "R", "key": "/clustersync/locks/R/c1-17", "deleted": true}
+{"ts": 1794262830.731308, "mono": 2853.564247, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-17"}
+{"ts": 1794262830.731371, "mono": 2853.564309, "component": "node1", "event": "COMMITTED", "total_s": 1.164617, "node": "node1", "client": "c1", "request_id": "c1-17"}
+{"ts": 1794262832.915684, "mono": 2855.748627, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-18"}
+{"ts": 1794262832.935224, "mono": 2855.768168, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-18", "resource": "R", "key": "/clustersync/locks/R/c1-18", "create_rev": 3212, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262832.936444, "mono": 2855.769383, "component": "node1", "event": "ACQUIRE", "wait_s": 0.020605, "create_rev": 3212, "queued_ahead": 0, "wakeups": 0, "etcd_ops": 3, "node": "node1", "client": "c1", "request_id": "c1-18"}
+{"ts": 1794262832.937874, "mono": 2855.770815, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-18"}
+{"ts": 1794262833.290115, "mono": 2856.123056, "component": "node1", "event": "EXIT", "cs_s": 0.349652, "node": "node1", "client": "c1", "request_id": "c1-18"}
+{"ts": 1794262833.297537, "mono": 2856.130484, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-18", "resource": "R", "key": "/clustersync/locks/R/c1-18", "deleted": true}
+{"ts": 1794262833.297695, "mono": 2856.130635, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-18"}
+{"ts": 1794262833.297755, "mono": 2856.130693, "component": "node1", "event": "COMMITTED", "total_s": 0.382073, "node": "node1", "client": "c1", "request_id": "c1-18"}
+{"ts": 1794262837.436206, "mono": 2860.269152, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-19"}
+{"ts": 1794262837.445388, "mono": 2860.278339, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-19", "resource": "R", "key": "/clustersync/locks/R/c1-19", "create_rev": 3221, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262837.447822, "mono": 2860.28077, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-19", "resource": "R", "owner": "c5-19", "owner_rev": 3220, "watching": "c5-19", "watching_rev": 3220, "ahead": 1}
+{"ts": 1794262837.807953, "mono": 2860.6409, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-19", "resource": "R", "reason": "event", "watched": "c5-19"}
+{"ts": 1794262837.810803, "mono": 2860.643745, "component": "node1", "event": "ACQUIRE", "wait_s": 0.374362, "create_rev": 3221, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-19"}
+{"ts": 1794262837.813802, "mono": 2860.646748, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-19"}
+{"ts": 1794262838.264926, "mono": 2861.097866, "component": "node1", "event": "EXIT", "cs_s": 0.448448, "node": "node1", "client": "c1", "request_id": "c1-19"}
+{"ts": 1794262838.27095, "mono": 2861.103896, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-19", "resource": "R", "key": "/clustersync/locks/R/c1-19", "deleted": true}
+{"ts": 1794262838.271137, "mono": 2861.10408, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-19"}
+{"ts": 1794262838.27121, "mono": 2861.104148, "component": "node1", "event": "COMMITTED", "total_s": 0.835006, "node": "node1", "client": "c1", "request_id": "c1-19"}
+{"ts": 1794262839.912266, "mono": 2862.745211, "component": "node1", "event": "REQUEST", "node": "node1", "client": "c1", "request_id": "c1-20"}
+{"ts": 1794262839.922084, "mono": 2862.755035, "component": "node1", "event": "KEY_CREATED", "node": "node1", "request_id": "c1-20", "resource": "R", "key": "/clustersync/locks/R/c1-20", "create_rev": 3229, "lease": "0x694da1c247d7d360"}
+{"ts": 1794262839.924363, "mono": 2862.757312, "component": "node1", "event": "WAIT", "node": "node1", "request_id": "c1-20", "resource": "R", "owner": "c3-18", "owner_rev": 3226, "watching": "c3-18", "watching_rev": 3226, "ahead": 1}
+{"ts": 1794262840.35428, "mono": 2863.187221, "component": "node1", "event": "WAKE", "node": "node1", "request_id": "c1-20", "resource": "R", "reason": "event", "watched": "c3-18"}
+{"ts": 1794262840.356625, "mono": 2863.189565, "component": "node1", "event": "ACQUIRE", "wait_s": 0.444149, "create_rev": 3229, "queued_ahead": 1, "wakeups": 1, "etcd_ops": 5, "node": "node1", "client": "c1", "request_id": "c1-20"}
+{"ts": 1794262840.358276, "mono": 2863.191218, "component": "node1", "event": "ENTER", "node": "node1", "client": "c1", "request_id": "c1-20"}
+{"ts": 1794262840.947575, "mono": 2863.780518, "component": "node1", "event": "EXIT", "cs_s": 0.584734, "node": "node1", "client": "c1", "request_id": "c1-20"}
+{"ts": 1794262840.958342, "mono": 2863.791295, "component": "node1", "event": "KEY_DELETED", "node": "node1", "request_id": "c1-20", "resource": "R", "key": "/clustersync/locks/R/c1-20", "deleted": true}
+{"ts": 1794262840.958642, "mono": 2863.791587, "component": "node1", "event": "RELEASE", "etcd_ops": 1, "node": "node1", "client": "c1", "request_id": "c1-20"}
+{"ts": 1794262840.95877, "mono": 2863.791709, "component": "node1", "event": "COMMITTED", "total_s": 1.046501, "node": "node1", "client": "c1", "request_id": "c1-20"}
+{"ts": 1794262848.93844, "mono": 2871.771385, "component": "node1", "event": "SESSION_CLOSED", "lease": "0x694da1c247d7d360"}
+{"ts": 1794262848.938578, "mono": 2871.771518, "component": "node1", "event": "NODE_STOP"}

@@ -1,0 +1,142 @@
+{"ts": 1793992771.003037, "mono": 8613.122345, "component": "observer", "event": "OBSERVER_START", "port": 18000}
+{"ts": 1793992775.218001, "mono": 8617.337311, "component": "observer", "event": "BEGIN", "seq": 1, "request_id": "c3-1", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992775.627253, "mono": 8617.74657, "component": "observer", "event": "END", "seq": 2, "request_id": "c3-1", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992775.648526, "mono": 8617.767837, "component": "observer", "event": "BEGIN", "seq": 3, "request_id": "c5-1", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992776.295302, "mono": 8618.414622, "component": "observer", "event": "END", "seq": 4, "request_id": "c5-1", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992776.313203, "mono": 8618.432507, "component": "observer", "event": "BEGIN", "seq": 5, "request_id": "c2-1", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992776.732468, "mono": 8618.851775, "component": "observer", "event": "END", "seq": 6, "request_id": "c2-1", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992776.741205, "mono": 8618.86051, "component": "observer", "event": "BEGIN", "seq": 7, "request_id": "c4-1", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992777.715422, "mono": 8619.83473, "component": "observer", "event": "END", "seq": 8, "request_id": "c4-1", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992777.725396, "mono": 8619.844706, "component": "observer", "event": "BEGIN", "seq": 9, "request_id": "c1-1", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992778.63252, "mono": 8620.751834, "component": "observer", "event": "END", "seq": 10, "request_id": "c1-1", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992778.650412, "mono": 8620.769724, "component": "observer", "event": "BEGIN", "seq": 11, "request_id": "c5-2", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992779.006377, "mono": 8621.125698, "component": "observer", "event": "END", "seq": 12, "request_id": "c5-2", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992779.024971, "mono": 8621.144281, "component": "observer", "event": "BEGIN", "seq": 13, "request_id": "c1-2", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992779.656995, "mono": 8621.776303, "component": "observer", "event": "END", "seq": 14, "request_id": "c1-2", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992779.667809, "mono": 8621.787114, "component": "observer", "event": "BEGIN", "seq": 15, "request_id": "c3-2", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992779.988697, "mono": 8622.108016, "component": "observer", "event": "END", "seq": 16, "request_id": "c3-2", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992780.011223, "mono": 8622.130537, "component": "observer", "event": "BEGIN", "seq": 17, "request_id": "c1-3", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992780.484951, "mono": 8622.604271, "component": "observer", "event": "END", "seq": 18, "request_id": "c1-3", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992780.578109, "mono": 8622.697415, "component": "observer", "event": "BEGIN", "seq": 19, "request_id": "c1-4", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992781.528569, "mono": 8623.647888, "component": "observer", "event": "END", "seq": 20, "request_id": "c1-4", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992781.550824, "mono": 8623.670137, "component": "observer", "event": "BEGIN", "seq": 21, "request_id": "c2-2", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992782.523797, "mono": 8624.643108, "component": "observer", "event": "END", "seq": 22, "request_id": "c2-2", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992782.544532, "mono": 8624.663841, "component": "observer", "event": "BEGIN", "seq": 23, "request_id": "c4-2", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992782.165337, "mono": 8625.449762, "component": "observer", "event": "END", "seq": 24, "request_id": "c4-2", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992782.194963, "mono": 8625.479392, "component": "observer", "event": "BEGIN", "seq": 25, "request_id": "c1-5", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992782.692288, "mono": 8625.976726, "component": "observer", "event": "END", "seq": 26, "request_id": "c1-5", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992782.718466, "mono": 8626.002901, "component": "observer", "event": "BEGIN", "seq": 27, "request_id": "c3-3", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992783.405245, "mono": 8626.689672, "component": "observer", "event": "END", "seq": 28, "request_id": "c3-3", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992783.414401, "mono": 8626.698824, "component": "observer", "event": "BEGIN", "seq": 29, "request_id": "c5-3", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992784.405804, "mono": 8627.690229, "component": "observer", "event": "END", "seq": 30, "request_id": "c5-3", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992784.416179, "mono": 8627.700601, "component": "observer", "event": "BEGIN", "seq": 31, "request_id": "c1-6", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992785.040009, "mono": 8628.324445, "component": "observer", "event": "END", "seq": 32, "request_id": "c1-6", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992785.059079, "mono": 8628.343507, "component": "observer", "event": "BEGIN", "seq": 33, "request_id": "c2-3", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992785.361717, "mono": 8628.646144, "component": "observer", "event": "END", "seq": 34, "request_id": "c2-3", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992785.373063, "mono": 8628.657486, "component": "observer", "event": "BEGIN", "seq": 35, "request_id": "c1-7", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992786.117716, "mono": 8629.402141, "component": "observer", "event": "END", "seq": 36, "request_id": "c1-7", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992786.127095, "mono": 8629.411521, "component": "observer", "event": "BEGIN", "seq": 37, "request_id": "c3-4", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992787.054891, "mono": 8630.339331, "component": "observer", "event": "END", "seq": 38, "request_id": "c3-4", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992787.064534, "mono": 8630.348957, "component": "observer", "event": "BEGIN", "seq": 39, "request_id": "c5-4", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992787.411514, "mono": 8630.69595, "component": "observer", "event": "END", "seq": 40, "request_id": "c5-4", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992787.427493, "mono": 8630.711917, "component": "observer", "event": "BEGIN", "seq": 41, "request_id": "c1-8", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992787.848367, "mono": 8631.132803, "component": "observer", "event": "END", "seq": 42, "request_id": "c1-8", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992787.871727, "mono": 8631.156154, "component": "observer", "event": "BEGIN", "seq": 43, "request_id": "c4-3", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992788.102227, "mono": 8631.386651, "component": "observer", "event": "END", "seq": 44, "request_id": "c4-3", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992788.159496, "mono": 8631.443918, "component": "observer", "event": "BEGIN", "seq": 45, "request_id": "c1-9", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992788.424356, "mono": 8631.708792, "component": "observer", "event": "END", "seq": 46, "request_id": "c1-9", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992788.572246, "mono": 8631.856683, "component": "observer", "event": "BEGIN", "seq": 47, "request_id": "c1-10", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992789.352093, "mono": 8632.63653, "component": "observer", "event": "END", "seq": 48, "request_id": "c1-10", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992789.437191, "mono": 8632.721617, "component": "observer", "event": "BEGIN", "seq": 49, "request_id": "c4-4", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992790.183571, "mono": 8633.467995, "component": "observer", "event": "END", "seq": 50, "request_id": "c4-4", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992790.193545, "mono": 8633.477967, "component": "observer", "event": "BEGIN", "seq": 51, "request_id": "c1-11", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992790.65469, "mono": 8633.939115, "component": "observer", "event": "END", "seq": 52, "request_id": "c1-11", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992790.66546, "mono": 8633.949882, "component": "observer", "event": "BEGIN", "seq": 53, "request_id": "c2-4", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992790.894499, "mono": 8634.178931, "component": "observer", "event": "END", "seq": 54, "request_id": "c2-4", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992790.90886, "mono": 8634.193283, "component": "observer", "event": "BEGIN", "seq": 55, "request_id": "c1-12", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992791.461381, "mono": 8634.745818, "component": "observer", "event": "END", "seq": 56, "request_id": "c1-12", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992791.586813, "mono": 8634.871234, "component": "observer", "event": "BEGIN", "seq": 57, "request_id": "c3-5", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992792.336722, "mono": 8635.621147, "component": "observer", "event": "END", "seq": 58, "request_id": "c3-5", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992792.35247, "mono": 8635.636891, "component": "observer", "event": "BEGIN", "seq": 59, "request_id": "c1-13", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992793.192319, "mono": 8636.476746, "component": "observer", "event": "END", "seq": 60, "request_id": "c1-13", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992793.205251, "mono": 8636.489673, "component": "observer", "event": "BEGIN", "seq": 61, "request_id": "c5-5", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992794.155668, "mono": 8637.440093, "component": "observer", "event": "END", "seq": 62, "request_id": "c5-5", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992794.164885, "mono": 8637.449307, "component": "observer", "event": "BEGIN", "seq": 63, "request_id": "c4-5", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992794.533556, "mono": 8637.817993, "component": "observer", "event": "END", "seq": 64, "request_id": "c4-5", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992794.5566, "mono": 8637.841028, "component": "observer", "event": "BEGIN", "seq": 65, "request_id": "c1-14", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992794.923304, "mono": 8638.207727, "component": "observer", "event": "END", "seq": 66, "request_id": "c1-14", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992794.932315, "mono": 8638.21674, "component": "observer", "event": "BEGIN", "seq": 67, "request_id": "c3-6", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992795.853711, "mono": 8639.138137, "component": "observer", "event": "END", "seq": 68, "request_id": "c3-6", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992795.864594, "mono": 8639.149019, "component": "observer", "event": "BEGIN", "seq": 69, "request_id": "c2-5", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992796.756702, "mono": 8640.041127, "component": "observer", "event": "END", "seq": 70, "request_id": "c2-5", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992796.767375, "mono": 8640.051797, "component": "observer", "event": "BEGIN", "seq": 71, "request_id": "c1-15", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992797.383951, "mono": 8640.668376, "component": "observer", "event": "END", "seq": 72, "request_id": "c1-15", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992797.562991, "mono": 8640.847418, "component": "observer", "event": "BEGIN", "seq": 73, "request_id": "c1-16", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992798.45489, "mono": 8641.739324, "component": "observer", "event": "END", "seq": 74, "request_id": "c1-16", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992798.46716, "mono": 8641.751581, "component": "observer", "event": "BEGIN", "seq": 75, "request_id": "c3-7", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992798.984083, "mono": 8642.26852, "component": "observer", "event": "END", "seq": 76, "request_id": "c3-7", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992799.005886, "mono": 8642.290318, "component": "observer", "event": "BEGIN", "seq": 77, "request_id": "c4-6", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992799.990919, "mono": 8643.275356, "component": "observer", "event": "END", "seq": 78, "request_id": "c4-6", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992800.007362, "mono": 8643.291784, "component": "observer", "event": "BEGIN", "seq": 79, "request_id": "c1-17", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992800.60326, "mono": 8643.887683, "component": "observer", "event": "END", "seq": 80, "request_id": "c1-17", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992800.619404, "mono": 8643.903826, "component": "observer", "event": "BEGIN", "seq": 81, "request_id": "c5-6", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992801.592607, "mono": 8644.877032, "component": "observer", "event": "END", "seq": 82, "request_id": "c5-6", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992801.602939, "mono": 8644.887377, "component": "observer", "event": "BEGIN", "seq": 83, "request_id": "c1-18", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992801.956568, "mono": 8645.241005, "component": "observer", "event": "END", "seq": 84, "request_id": "c1-18", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992801.97871, "mono": 8645.263142, "component": "observer", "event": "BEGIN", "seq": 85, "request_id": "c2-6", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992802.294624, "mono": 8645.579057, "component": "observer", "event": "END", "seq": 86, "request_id": "c2-6", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992802.322059, "mono": 8645.606486, "component": "observer", "event": "BEGIN", "seq": 87, "request_id": "c3-8", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992802.714185, "mono": 8645.99861, "component": "observer", "event": "END", "seq": 88, "request_id": "c3-8", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992802.72432, "mono": 8646.008741, "component": "observer", "event": "BEGIN", "seq": 89, "request_id": "c1-19", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992803.175286, "mono": 8646.459715, "component": "observer", "event": "END", "seq": 90, "request_id": "c1-19", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992803.186716, "mono": 8646.471141, "component": "observer", "event": "BEGIN", "seq": 91, "request_id": "c5-7", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992804.019781, "mono": 8647.304212, "component": "observer", "event": "END", "seq": 92, "request_id": "c5-7", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992804.030494, "mono": 8647.314919, "component": "observer", "event": "BEGIN", "seq": 93, "request_id": "c4-7", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992804.979584, "mono": 8648.26402, "component": "observer", "event": "END", "seq": 94, "request_id": "c4-7", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992805.002939, "mono": 8648.287369, "component": "observer", "event": "BEGIN", "seq": 95, "request_id": "c1-20", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992805.592165, "mono": 8648.876603, "component": "observer", "event": "END", "seq": 96, "request_id": "c1-20", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992805.616041, "mono": 8648.900473, "component": "observer", "event": "BEGIN", "seq": 97, "request_id": "c2-7", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992805.824971, "mono": 8649.109407, "component": "observer", "event": "END", "seq": 98, "request_id": "c2-7", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992805.867024, "mono": 8649.151458, "component": "observer", "event": "BEGIN", "seq": 99, "request_id": "c1-21", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992806.537831, "mono": 8649.822262, "component": "observer", "event": "END", "seq": 100, "request_id": "c1-21", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992806.558389, "mono": 8649.842815, "component": "observer", "event": "BEGIN", "seq": 101, "request_id": "c3-9", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992807.108334, "mono": 8650.392761, "component": "observer", "event": "END", "seq": 102, "request_id": "c3-9", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992807.118461, "mono": 8650.402905, "component": "observer", "event": "BEGIN", "seq": 103, "request_id": "c1-22", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992807.920523, "mono": 8651.204947, "component": "observer", "event": "END", "seq": 104, "request_id": "c1-22", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992807.930464, "mono": 8651.214885, "component": "observer", "event": "BEGIN", "seq": 105, "request_id": "c5-8", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992808.819918, "mono": 8652.104343, "component": "observer", "event": "END", "seq": 106, "request_id": "c5-8", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992808.829737, "mono": 8652.114161, "component": "observer", "event": "BEGIN", "seq": 107, "request_id": "c4-8", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992809.473327, "mono": 8652.757763, "component": "observer", "event": "END", "seq": 108, "request_id": "c4-8", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992809.490626, "mono": 8652.775048, "component": "observer", "event": "BEGIN", "seq": 109, "request_id": "c1-23", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992809.887425, "mono": 8653.171861, "component": "observer", "event": "END", "seq": 110, "request_id": "c1-23", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992809.90098, "mono": 8653.185401, "component": "observer", "event": "BEGIN", "seq": 111, "request_id": "c2-8", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992810.256414, "mono": 8653.54085, "component": "observer", "event": "END", "seq": 112, "request_id": "c2-8", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992810.27437, "mono": 8653.558791, "component": "observer", "event": "BEGIN", "seq": 113, "request_id": "c1-24", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992811.229711, "mono": 8654.514147, "component": "observer", "event": "END", "seq": 114, "request_id": "c1-24", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992811.248925, "mono": 8654.533355, "component": "observer", "event": "BEGIN", "seq": 115, "request_id": "c5-9", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992810.886465, "mono": 8655.331842, "component": "observer", "event": "END", "seq": 116, "request_id": "c5-9", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992810.90236, "mono": 8655.347728, "component": "observer", "event": "BEGIN", "seq": 117, "request_id": "c3-10", "node": "node3", "client": "c3", "active": 1, "overlap": false}
+{"ts": 1793992811.771139, "mono": 8656.216522, "component": "observer", "event": "END", "seq": 118, "request_id": "c3-10", "node": "node3", "client": "c3", "active": 0}
+{"ts": 1793992811.791041, "mono": 8656.236419, "component": "observer", "event": "BEGIN", "seq": 119, "request_id": "c1-25", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992812.142128, "mono": 8656.587511, "component": "observer", "event": "END", "seq": 120, "request_id": "c1-25", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992812.155838, "mono": 8656.601207, "component": "observer", "event": "BEGIN", "seq": 121, "request_id": "c2-9", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992812.634815, "mono": 8657.0802, "component": "observer", "event": "END", "seq": 122, "request_id": "c2-9", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992812.664709, "mono": 8657.110091, "component": "observer", "event": "BEGIN", "seq": 123, "request_id": "c1-26", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992813.387231, "mono": 8657.832614, "component": "observer", "event": "END", "seq": 124, "request_id": "c1-26", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992813.407461, "mono": 8657.852838, "component": "observer", "event": "BEGIN", "seq": 125, "request_id": "c4-9", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992813.65107, "mono": 8658.096445, "component": "observer", "event": "END", "seq": 126, "request_id": "c4-9", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992813.667729, "mono": 8658.113108, "component": "observer", "event": "BEGIN", "seq": 127, "request_id": "c5-10", "node": "node5", "client": "c5", "active": 1, "overlap": false}
+{"ts": 1793992814.544336, "mono": 8658.989707, "component": "observer", "event": "END", "seq": 128, "request_id": "c5-10", "node": "node5", "client": "c5", "active": 0}
+{"ts": 1793992814.555487, "mono": 8659.000863, "component": "observer", "event": "BEGIN", "seq": 129, "request_id": "c1-27", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992815.136378, "mono": 8659.581751, "component": "observer", "event": "END", "seq": 130, "request_id": "c1-27", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992815.178917, "mono": 8659.624286, "component": "observer", "event": "BEGIN", "seq": 131, "request_id": "c1-28", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992815.727618, "mono": 8660.173002, "component": "observer", "event": "END", "seq": 132, "request_id": "c1-28", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992815.805445, "mono": 8660.250822, "component": "observer", "event": "BEGIN", "seq": 133, "request_id": "c1-29", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992816.522061, "mono": 8660.967445, "component": "observer", "event": "END", "seq": 134, "request_id": "c1-29", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992816.538896, "mono": 8660.984272, "component": "observer", "event": "BEGIN", "seq": 135, "request_id": "c2-10", "node": "node2", "client": "c2", "active": 1, "overlap": false}
+{"ts": 1793992817.095252, "mono": 8661.540636, "component": "observer", "event": "END", "seq": 136, "request_id": "c2-10", "node": "node2", "client": "c2", "active": 0}
+{"ts": 1793992817.11558, "mono": 8661.560961, "component": "observer", "event": "BEGIN", "seq": 137, "request_id": "c1-30", "node": "node1", "client": "c1", "active": 1, "overlap": false}
+{"ts": 1793992817.91173, "mono": 8662.35711, "component": "observer", "event": "END", "seq": 138, "request_id": "c1-30", "node": "node1", "client": "c1", "active": 0}
+{"ts": 1793992818.464736, "mono": 8662.910105, "component": "observer", "event": "BEGIN", "seq": 139, "request_id": "c4-10", "node": "node4", "client": "c4", "active": 1, "overlap": false}
+{"ts": 1793992819.2537, "mono": 8663.69908, "component": "observer", "event": "END", "seq": 140, "request_id": "c4-10", "node": "node4", "client": "c4", "active": 0}
+{"ts": 1793992819.754932, "mono": 8664.200305, "component": "observer", "event": "OBSERVER_STOP", "active": 0, "max_active": 1, "violations": 0, "begins": 70, "ends": 70}

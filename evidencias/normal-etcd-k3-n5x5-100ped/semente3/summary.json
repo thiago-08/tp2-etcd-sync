@@ -1,0 +1,137 @@
+{
+  "checks": [
+    {
+      "name": "Exclusão mútua em R (observador)",
+      "ok": true,
+      "detail": "máx. acessos simultâneos = 1, sobreposições = 0"
+    },
+    {
+      "name": "Semáforo: nunca mais de K=3 acessos simultâneos na etapa S",
+      "ok": true,
+      "detail": "pico = 3, excessos acima de K = 0"
+    },
+    {
+      "name": "Todo BEGIN tem END",
+      "ok": true,
+      "detail": "R: BEGIN=100, END=100 | S: BEGIN=100, END=100"
+    },
+    {
+      "name": "Todos os pedidos concluídos (progresso)",
+      "ok": true,
+      "detail": "planejados=100, COMMITTED nos nós=100, recebidos pelos clientes=100"
+    },
+    {
+      "name": "Ciclo de vida REQUEST→…→COMMITTED em ordem (com etapa do semáforo)",
+      "ok": true,
+      "detail": "ok em todos os pedidos"
+    },
+    {
+      "name": "Ordem de entrada = ordem de create_revision (FIFO)",
+      "ok": true,
+      "detail": "100 entradas verificadas"
+    },
+    {
+      "name": "Fila da etapa S respeitada (ultrapassagens <= K-1 = 2)",
+      "ok": true,
+      "detail": "100 entradas, máx. de pedidos mais antigos ultrapassados = 0"
+    },
+    {
+      "name": "Uso concorrente das permissões (pico >= 2)",
+      "ok": true,
+      "detail": "pico = 3 de K = 3"
+    }
+  ],
+  "metrics": {
+    "config": {
+      "sync_mode": "etcd",
+      "seed": "3",
+      "cs_min": 0.2,
+      "cs_max": 1.0,
+      "semaphore_k": 3,
+      "stage_min": 0.2,
+      "stage_max": 1.0
+    },
+    "nodes": 5,
+    "clients": 5,
+    "pedidos_concluidos": 100,
+    "tempo_total_s": 99.319,
+    "vazao_acessos_por_s": 1.007,
+    "espera_mediana_s": 0.076,
+    "espera_media_s": 0.223,
+    "espera_p95_s": 0.851,
+    "espera_max_s": 1.367,
+    "cs_media_s": 0.593,
+    "operacoes_etcd_por_entrada": 5.04,
+    "notificacoes_watch_por_entrada": 0.52,
+    "max_acessos_simultaneos": 1,
+    "sobreposicoes": 0,
+    "acessos_por_cliente": {
+      "c1": 20,
+      "c2": 20,
+      "c3": 20,
+      "c4": 20,
+      "c5": 20
+    },
+    "espera_mediana_por_cliente_s": {
+      "c1": 0.185,
+      "c2": 0.015,
+      "c3": 0.016,
+      "c4": 0.223,
+      "c5": 0.021
+    },
+    "config_clientes": {
+      "c1": {
+        "planned": 20,
+        "think": [
+          1.0,
+          5.0
+        ],
+        "heavy": false
+      },
+      "c2": {
+        "planned": 20,
+        "think": [
+          1.0,
+          5.0
+        ],
+        "heavy": false
+      },
+      "c3": {
+        "planned": 20,
+        "think": [
+          1.0,
+          5.0
+        ],
+        "heavy": false
+      },
+      "c4": {
+        "planned": 20,
+        "think": [
+          1.0,
+          5.0
+        ],
+        "heavy": false
+      },
+      "c5": {
+        "planned": 20,
+        "think": [
+          1.0,
+          5.0
+        ],
+        "heavy": false
+      }
+    },
+    "semaforo": {
+      "K": 3,
+      "etapa": "S",
+      "pico_permissoes_em_uso": 3,
+      "ocupacao_media_permissoes": 0.62,
+      "utilizacao_media": "21%",
+      "espera_mediana_s": 0.012,
+      "espera_p95_s": 0.039,
+      "espera_max_s": 0.652,
+      "operacoes_etcd_por_entrada": 4.16,
+      "notificacoes_watch_por_entrada": 0.04
+    }
+  }
+}

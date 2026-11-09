@@ -1,0 +1,42 @@
+{"ts": 1794264364.853616, "mono": 4433.495603, "component": "c8", "event": "CLIENT_START", "node_url": "http://localhost:18008", "planned": 20, "think_min": 0.0, "think_max": 0.0, "heavy": false, "seed": "1"}
+{"ts": 1794264365.372959, "mono": 4434.014941, "component": "c8", "event": "SEND", "request_id": "c8-1"}
+{"ts": 1794264368.016541, "mono": 4436.658521, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-1", "latency_s": 2.643579, "node_wait_s": 1.710108}
+{"ts": 1794264368.016734, "mono": 4436.658714, "component": "c8", "event": "SEND", "request_id": "c8-2"}
+{"ts": 1794264374.087131, "mono": 4442.729114, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-2", "latency_s": 6.070383, "node_wait_s": 5.523842}
+{"ts": 1794264374.087484, "mono": 4442.729471, "component": "c8", "event": "SEND", "request_id": "c8-3"}
+{"ts": 1794264379.045243, "mono": 4448.599521, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-3", "latency_s": 5.87001, "node_wait_s": 5.129304}
+{"ts": 1794264379.045598, "mono": 4448.599878, "component": "c8", "event": "SEND", "request_id": "c8-4"}
+{"ts": 1794264385.822506, "mono": 4455.376781, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-4", "latency_s": 6.776903, "node_wait_s": 5.898112}
+{"ts": 1794264385.822752, "mono": 4455.377028, "component": "c8", "event": "SEND", "request_id": "c8-5"}
+{"ts": 1794264391.284732, "mono": 4460.839005, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-5", "latency_s": 5.461977, "node_wait_s": 4.688204}
+{"ts": 1794264391.284905, "mono": 4460.839179, "component": "c8", "event": "SEND", "request_id": "c8-6"}
+{"ts": 1794264398.590426, "mono": 4468.144699, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-6", "latency_s": 7.305517, "node_wait_s": 6.76332}
+{"ts": 1794264398.590626, "mono": 4468.144901, "component": "c8", "event": "SEND", "request_id": "c8-7"}
+{"ts": 1794264403.520865, "mono": 4473.985468, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-7", "latency_s": 5.840556, "node_wait_s": 5.335377}
+{"ts": 1794264403.521419, "mono": 4473.986094, "component": "c8", "event": "SEND", "request_id": "c8-8"}
+{"ts": 1794264409.908505, "mono": 4480.373107, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-8", "latency_s": 6.387111, "node_wait_s": 5.87067}
+{"ts": 1794264409.908878, "mono": 4480.373484, "component": "c8", "event": "SEND", "request_id": "c8-9"}
+{"ts": 1794264415.87541, "mono": 4486.340009, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-9", "latency_s": 5.96653, "node_wait_s": 5.542444}
+{"ts": 1794264415.875731, "mono": 4486.340332, "component": "c8", "event": "SEND", "request_id": "c8-10"}
+{"ts": 1794264422.209118, "mono": 4492.673719, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-10", "latency_s": 6.333377, "node_wait_s": 5.578331}
+{"ts": 1794264422.209454, "mono": 4492.674059, "component": "c8", "event": "SEND", "request_id": "c8-11"}
+{"ts": 1794264428.446129, "mono": 4498.910735, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-11", "latency_s": 6.236229, "node_wait_s": 5.860186}
+{"ts": 1794264428.447202, "mono": 4498.911816, "component": "c8", "event": "SEND", "request_id": "c8-12"}
+{"ts": 1794264433.324627, "mono": 4504.707618, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-12", "latency_s": 5.795816, "node_wait_s": 5.105311}
+{"ts": 1794264433.325075, "mono": 4504.708068, "component": "c8", "event": "SEND", "request_id": "c8-13"}
+{"ts": 1794264439.7237, "mono": 4511.106692, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-13", "latency_s": 6.398615, "node_wait_s": 5.627736}
+{"ts": 1794264439.723954, "mono": 4511.10695, "component": "c8", "event": "SEND", "request_id": "c8-14"}
+{"ts": 1794264445.245242, "mono": 4516.628235, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-14", "latency_s": 5.521276, "node_wait_s": 5.158749}
+{"ts": 1794264445.245833, "mono": 4516.628829, "component": "c8", "event": "SEND", "request_id": "c8-15"}
+{"ts": 1794264451.468054, "mono": 4522.851046, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-15", "latency_s": 6.222216, "node_wait_s": 5.745606}
+{"ts": 1794264451.468437, "mono": 4522.851432, "component": "c8", "event": "SEND", "request_id": "c8-16"}
+{"ts": 1794264459.428396, "mono": 4530.811386, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-16", "latency_s": 7.959956, "node_wait_s": 7.039343}
+{"ts": 1794264459.428969, "mono": 4530.811962, "component": "c8", "event": "SEND", "request_id": "c8-17"}
+{"ts": 1794264464.107783, "mono": 4536.394379, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-17", "latency_s": 5.582414, "node_wait_s": 5.274741}
+{"ts": 1794264464.108098, "mono": 4536.394694, "component": "c8", "event": "SEND", "request_id": "c8-18"}
+{"ts": 1794264470.935777, "mono": 4543.222374, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-18", "latency_s": 6.827673, "node_wait_s": 6.028106}
+{"ts": 1794264470.936167, "mono": 4543.222765, "component": "c8", "event": "SEND", "request_id": "c8-19"}
+{"ts": 1794264476.682462, "mono": 4548.96906, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-19", "latency_s": 5.746285, "node_wait_s": 4.778683}
+{"ts": 1794264476.682913, "mono": 4548.969515, "component": "c8", "event": "SEND", "request_id": "c8-20"}
+{"ts": 1794264481.943272, "mono": 4554.229869, "component": "c8", "event": "RECEIVED_COMMITTED", "request_id": "c8-20", "latency_s": 5.260352, "node_wait_s": 4.50664}
+{"ts": 1794264481.943515, "mono": 4554.230111, "component": "c8", "event": "CLIENT_DONE", "completed": 20, "total_s": 120.215175}
