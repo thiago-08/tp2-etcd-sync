@@ -8,6 +8,8 @@ Exemplos
   python scripts/run_experiment.py --scenario contention --sync none      # proteção desligada
   python scripts/run_experiment.py --scenario uneven --heavy-client c1
   python scripts/run_experiment.py --mode docker --nodes 10 --clients 5
+  python scripts/run_experiment.py --scenario contention --semaphore 2   # extensão: semáforo K=2
+  python scripts/run_experiment.py --scenario contention --semaphore 3 --stage-min 1 --stage-max 2
 
 --mode local  : processos Python independentes na máquina (precisa do etcd em localhost:2379)
 --mode docker : um contêiner por processo via docker compose (inclui o etcd)
@@ -54,6 +56,9 @@ def build_env(a, run_id: str, start_at: float) -> dict:
         "HEAVY_CLIENT": a.heavy_client if heavy else "",
         "HEAVY_REQUESTS": str(a.heavy_requests or min(50, a.requests * 3)),
         "HEAVY_THINK_MIN": "0.0", "HEAVY_THINK_MAX": "0.3",
+        "SEMAPHORE_K": str(a.semaphore),
+        "STAGE_MIN": str(a.stage_min if a.stage_min is not None else a.cs_min),
+        "STAGE_MAX": str(a.stage_max if a.stage_max is not None else a.cs_max),
     }
 
 
@@ -169,6 +174,10 @@ def main():
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--cs-min", type=float, default=0.2)
     ap.add_argument("--cs-max", type=float, default=1.0)
+    ap.add_argument("--semaphore", type=int, default=0, metavar="K",
+                    help="extensão: etapa separada com semáforo de K permissões antes de R (0 = desligada)")
+    ap.add_argument("--stage-min", type=float, default=None, help="duração mínima da etapa do semáforo (padrão: --cs-min)")
+    ap.add_argument("--stage-max", type=float, default=None, help="duração máxima da etapa do semáforo (padrão: --cs-max)")
     ap.add_argument("--think-min", type=float, default=None, help="sobrescreve o cenário")
     ap.add_argument("--think-max", type=float, default=None, help="sobrescreve o cenário")
     ap.add_argument("--heavy-client", default="c1", help="cliente pesado do cenário 'uneven'")
@@ -185,10 +194,12 @@ def main():
         a.start_delay = 3.0 if a.mode == "local" else 10.0
 
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-    run_id = a.run_id or f"{stamp}-{a.scenario}-{a.sync}-n{a.nodes}-s{a.seed}"
+    sem_tag = f"-k{a.semaphore}" if a.semaphore else ""
+    run_id = a.run_id or f"{stamp}-{a.scenario}-{a.sync}{sem_tag}-n{a.nodes}-s{a.seed}"
     log_dir = ROOT / "logs" / run_id
     log_dir.mkdir(parents=True, exist_ok=True)
-    print(f"Execução {run_id}  (modo={a.mode}, nós={a.nodes}, clientes={a.clients}, sync={a.sync})")
+    print(f"Execução {run_id}  (modo={a.mode}, nós={a.nodes}, clientes={a.clients}, sync={a.sync}"
+          + (f", semáforo K={a.semaphore}" if a.semaphore else "") + ")")
 
     t0 = time.monotonic()
     (run_local if a.mode == "local" else run_docker)(a, run_id, log_dir)

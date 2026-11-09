@@ -10,6 +10,7 @@ import argparse
 
 ENV_PASSTHROUGH = [
     "SYNC_MODE", "SEED", "RUN_ID", "CS_MIN", "CS_MAX",
+    "SEMAPHORE_K", "STAGE_MIN", "STAGE_MAX",
 ]
 CLIENT_PASSTHROUGH = [
     "SEED", "RUN_ID", "START_AT", "REQUESTS", "THINK_MIN", "THINK_MAX",
@@ -18,6 +19,7 @@ CLIENT_PASSTHROUGH = [
 DEFAULTS = {
     "SYNC_MODE": "etcd", "SEED": "1", "RUN_ID": "docker", "CS_MIN": "0.2", "CS_MAX": "1.0",
     "START_AT": "0", "REQUESTS": "10", "THINK_MIN": "1.0", "THINK_MAX": "5.0",
+    "SEMAPHORE_K": "0", "STAGE_MIN": "0.2", "STAGE_MAX": "1.0",
     "HEAVY_CLIENT": "", "HEAVY_REQUESTS": "30", "HEAVY_THINK_MIN": "0.0", "HEAVY_THINK_MAX": "0.3",
 }
 

@@ -151,7 +151,7 @@ class EtcdMutexService:
             raise LockLost(f"chave {key} não existe após a criação")
         my_rev = meta.create_revision
         info = AcquireInfo(key=key, create_rev=my_rev)
-        trace("KEY_CREATED", key=key, create_rev=my_rev, lease=hex(self.session.lease_id))
+        trace("KEY_CREATED", resource=resource, key=key, create_rev=my_rev, lease=hex(self.session.lease_id))
 
         # 2) espera até ser o menor create_revision da fila
         first = True
@@ -174,7 +174,7 @@ class EtcdMutexService:
             pred_key, pred_rev = ahead[-1]
             info.predecessors.append(pred_key[len(pfx):])
             trace(
-                "WAIT",
+                "WAIT", resource=resource,
                 owner=owner_key[len(pfx):], owner_rev=owner_rev,
                 watching=pred_key[len(pfx):], watching_rev=pred_rev,
                 ahead=len(ahead),
@@ -183,13 +183,13 @@ class EtcdMutexService:
             ops += 1
             if reason == "event":
                 info.wakeups += 1
-            trace("WAKE", reason=reason, watched=pred_key[len(pfx):])
+            trace("WAKE", resource=resource, reason=reason, watched=pred_key[len(pfx):])
 
     def release(self, resource: str, request_id: str, trace=None) -> int:
         trace = trace or (lambda *a, **k: None)
         key = f"{ROOT}/{resource}/{request_id}"
         deleted = self.client.delete(key)
-        trace("KEY_DELETED", key=key, deleted=bool(deleted))
+        trace("KEY_DELETED", resource=resource, key=key, deleted=bool(deleted))
         return 1  # operações ao etcd
 
     def close(self):

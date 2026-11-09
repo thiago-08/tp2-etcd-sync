@@ -40,6 +40,9 @@ services:
       RUN_ID: ${RUN_ID:-docker}
       CS_MIN: ${CS_MIN:-0.2}
       CS_MAX: ${CS_MAX:-1.0}
+      SEMAPHORE_K: ${SEMAPHORE_K:-0}
+      STAGE_MIN: ${STAGE_MIN:-0.2}
+      STAGE_MAX: ${STAGE_MAX:-1.0}
 
   node2:
     build: .
@@ -61,6 +64,9 @@ services:
       RUN_ID: ${RUN_ID:-docker}
       CS_MIN: ${CS_MIN:-0.2}
       CS_MAX: ${CS_MAX:-1.0}
+      SEMAPHORE_K: ${SEMAPHORE_K:-0}
+      STAGE_MIN: ${STAGE_MIN:-0.2}
+      STAGE_MAX: ${STAGE_MAX:-1.0}
 
   node3:
     build: .
@@ -82,6 +88,9 @@ services:
       RUN_ID: ${RUN_ID:-docker}
       CS_MIN: ${CS_MIN:-0.2}
       CS_MAX: ${CS_MAX:-1.0}
+      SEMAPHORE_K: ${SEMAPHORE_K:-0}
+      STAGE_MIN: ${STAGE_MIN:-0.2}
+      STAGE_MAX: ${STAGE_MAX:-1.0}
 
   node4:
     build: .
@@ -103,6 +112,9 @@ services:
       RUN_ID: ${RUN_ID:-docker}
       CS_MIN: ${CS_MIN:-0.2}
       CS_MAX: ${CS_MAX:-1.0}
+      SEMAPHORE_K: ${SEMAPHORE_K:-0}
+      STAGE_MIN: ${STAGE_MIN:-0.2}
+      STAGE_MAX: ${STAGE_MAX:-1.0}
 
   node5:
     build: .
@@ -124,6 +136,9 @@ services:
       RUN_ID: ${RUN_ID:-docker}
       CS_MIN: ${CS_MIN:-0.2}
       CS_MAX: ${CS_MAX:-1.0}
+      SEMAPHORE_K: ${SEMAPHORE_K:-0}
+      STAGE_MIN: ${STAGE_MIN:-0.2}
+      STAGE_MAX: ${STAGE_MAX:-1.0}
 
   client1:
     build: .
