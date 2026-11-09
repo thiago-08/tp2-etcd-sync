@@ -141,7 +141,7 @@ logs/ (ignorado pelo git)   evidencias/ (logs selecionados para a entrega)
 Sem quedas de processos, sem perda de mensagens, sem testes de expiração de lease, eleição ou replicação; etcd em instância única.
 `COMMITTED` significa fim do acesso simulado, não persistência. Ausência de starvation numa execução curta é observação, não prova.
 
-## 9. Pendências do grupo
+## 9. Pendências do grup
 
 - [ ] Definir e implementar a **extensão** (reutiliza `mutex.py` e o observador)
 - [ ] Rodar as 3 repetições de *normal* e de *contention*; copiar logs selecionados para `evidencias/`
