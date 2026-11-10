@@ -12,6 +12,10 @@ Propriedades verificadas
                        (comparação com o relógio monotônico do próprio nó).
   5. FIFO por revisão- a ordem de entrada na seção crítica coincide com a ordem
                        crescente de create_revision no etcd (justiça).
+  5b. Sessões válidas- nenhuma sessão (lease) expirou, nenhum pedido perdeu a chave,
+                       toda chave foi criada no lease do próprio nó e o maior intervalo
+                       entre keepalives ficou abaixo do TTL (enunciado B3: "mantendo as
+                       sessões válidas durante os experimentos").
 Com a extensão do semáforo (SEMAPHORE_K = K > 0), verifica também na etapa S:
   6. Limite K       - nunca mais de K acessos simultâneos (reexecução independente,
                        com K lido da configuração dos nós).
@@ -21,6 +25,11 @@ Com a extensão do semáforo (SEMAPHORE_K = K > 0), verifica também na etapa S:
                        pode ultrapassar no máximo K-1 pedidos mais antigos.
 Se a execução foi feita com SYNC_MODE=none, a verificação esperada é INVERSA:
 precisa detectar sobreposições (prova que a instrumentação funciona).
+
+Tráfego (métrica "trafego_por_entrada"): separa as mensagens do PROTOCOLO (chamadas
+ao etcd para acquire/release, mais os keepalives da sessão) das mensagens de
+INSTRUMENTAÇÃO (BEGIN/END ao observador, leituras feitas só para o log) e da
+aplicação (pedido do cliente + COMMITTED), e compara o protocolo com o custo teórico.
 """
 import json
 import re
@@ -91,6 +100,51 @@ def occupancy(events: list[dict]) -> float:
     return area / window if window > 0 else 0.0
 
 
+def theoretical_ops(mode: str, rounds: int) -> int:
+    """Custo teórico, em chamadas ao etcd, de UMA entrada em R (acquire + release).
+    etcd     : txn (entra na fila) + get (lê a própria revisão) + range (lê a fila)
+               + 2 por rodada de espera (watch do predecessor + releitura da fila)
+               + delete  ->  4 + 2·rodadas  (sem disputa = 4; esperando 1 liberação = 6)
+    etcd-api : Lock + Unlock = 2, com ou sem disputa (a espera acontece dentro do etcd)"""
+    if mode == "etcd":
+        return 4 + 2 * rounds
+    if mode == "etcd-api":
+        return 2
+    return 0
+
+
+def session_check(nodes: dict) -> tuple[bool, str]:
+    leases_total, expired, ka_err, errors, gaps, ttls, closed, foreign = 0, 0, 0, 0, [], [], 0, []
+    for recs in nodes.values():
+        leases = {r.get("lease") for r in recs if r["event"] == "SESSION_START"}
+        leases_total += len(leases)
+        for r in recs:
+            ev = r["event"]
+            if ev == "SESSION_START":
+                ttls.append(r.get("ttl") or 0)
+            elif ev == "SESSION_EXPIRED":
+                expired += 1
+            elif ev == "KEEPALIVE_ERROR":
+                ka_err += 1
+            elif ev == "ERROR":
+                errors += 1
+            elif ev == "SESSION_CLOSED":
+                closed += 1
+                if r.get("max_gap_s") is not None:
+                    gaps.append(r["max_gap_s"])
+            elif ev in ("KEY_CREATED", "LOCK_GRANTED") and r.get("lease") not in leases:
+                foreign.append(r.get("request_id"))
+    ttl = min(ttls) if ttls else 0
+    gap_ok = not gaps or max(gaps) < ttl
+    ok = leases_total >= len(nodes) > 0 and expired == 0 and errors == 0 and not foreign and gap_ok
+    detail = (f"{leases_total} sessões (TTL {ttl} s) em {len(nodes)} nós, expiradas = {expired}, "
+              f"pedidos com erro = {errors}, erros de keepalive = {ka_err}, chaves fora do lease do nó = {len(foreign)}, "
+              f"sessões encerradas normalmente = {closed}, ")
+    detail += (f"maior intervalo entre keepalives = {max(gaps):.2f} s" if gaps
+               else "intervalo entre keepalives não registrado nestes logs")
+    return ok, detail
+
+
 def analyze(logdir: Path) -> dict:
     obs = load(logdir / "observer.jsonl") if (logdir / "observer.jsonl").exists() else []
     node_files = sorted(p for p in logdir.glob("node*.jsonl"))
@@ -98,13 +152,14 @@ def analyze(logdir: Path) -> dict:
     nodes = {p.stem: load(p) for p in node_files}
     clients = {p.stem: load(p) for p in client_files}
 
-    sync_mode, sem_k, stage = "etcd", 0, "S"
+    sync_mode, sem_k, stage, r_name = "etcd", 0, "S", "R"
     for recs in nodes.values():
         for r in recs:
             if r["event"] == "NODE_START":
                 sync_mode = r.get("sync_mode", sync_mode)
                 sem_k = int(r.get("semaphore_k", 0) or 0)
                 stage = r.get("stage", stage)
+                r_name = r.get("resource", r_name)
 
     # ---- agrupa eventos dos nós por request_id
     req = defaultdict(lambda: defaultdict(list))
@@ -192,6 +247,8 @@ def analyze(logdir: Path) -> dict:
         fifo_ok = len(revs) == len(order) and all(a < b for a, b in zip(revs, revs[1:]))
         checks.append(("Ordem de entrada = ordem de create_revision (FIFO)", fifo_ok,
                        f"{len(order)} entradas verificadas"))
+        ok, detail = session_check(nodes)
+        checks.append(("Sessões (leases) válidas durante todo o experimento", ok, detail))
 
     # 6/7/8) propriedades do semáforo
     sem_metrics = {}
@@ -219,6 +276,46 @@ def analyze(logdir: Path) -> dict:
            for d in req.values() if "ACQUIRE" in d and "RELEASE" in d]
     wakes = [d["ACQUIRE"][0].get("wakeups", 0) for d in req.values() if "ACQUIRE" in d]
     cs_s = [d["EXIT"][0].get("cs_s", 0) for d in req.values() if "EXIT" in d]
+    # ---- tráfego por entrada: protocolo x instrumentação x aplicação
+    rounds, timeouts, theo, inst = [], [], [], []
+    for d in req.values():
+        if "ACQUIRE" not in d:
+            continue
+        acq = d["ACQUIRE"][0]
+        if "rounds" in acq:  # logs novos
+            rd, to = acq.get("rounds", 0), acq.get("timeouts", 0)
+        else:  # logs antigos: conta as rodadas pelos eventos WAIT/WAKE do recurso R
+            rd = sum(1 for w in d.get("WAIT", []) if w.get("resource", r_name) == r_name)
+            to = sum(1 for w in d.get("WAKE", [])
+                     if w.get("resource", r_name) == r_name and w.get("reason") == "timeout")
+        rounds.append(rd)
+        timeouts.append(to)
+        theo.append(theoretical_ops(sync_mode, rd))
+        inst.append(acq.get("inst_ops", 0))
+    closes = [r for recs in nodes.values() for r in recs if r["event"] == "SESSION_CLOSED"]
+    keepalives = (sum(r["keepalives"] for r in closes)
+                  if closes and all("keepalives" in r for r in closes) else None)
+    n_entries = len(rounds)
+    obs_msgs = sum(len(evs) for evs in by_res.values())  # BEGIN + END de todos os recursos
+    cli_msgs = sum(1 for recs in clients.values() for r in recs if r["event"] in ("SEND", "RECEIVED_COMMITTED"))
+
+    def per_entry(x):
+        return round(x / n_entries, 2) if n_entries and x is not None else None
+
+    traffic = {
+        "protocolo_R_observado": round(statistics.mean(ops), 2) if ops else 0,
+        "protocolo_R_teorico": round(statistics.mean(theo), 2) if theo else 0,
+        "modelo_teorico_R": {"etcd": "4 + 2·rodadas (sem disputa = 4; 1 rodada = 6)",
+                             "etcd-api": "2 (Lock + Unlock; a espera ocorre dentro do etcd)"}.get(sync_mode, "0"),
+        "rodadas_espera_R": round(statistics.mean(rounds), 2) if rounds else 0,
+        "timeouts_watch_R": round(statistics.mean(timeouts), 2) if timeouts else 0,
+        "protocolo_semaforo": None,
+        "keepalives_sessao": per_entry(keepalives),
+        "instrumentacao_observador": per_entry(obs_msgs),
+        "instrumentacao_leituras_etcd": round(statistics.mean(inst), 2) if inst else 0,
+        "aplicacao_cliente_no": per_entry(cli_msgs),
+    }
+
     all_ev = sorted((r for evs in by_res.values() for r in evs), key=lambda r: r["seq"])
     total_s = (all_ev[-1]["mono"] - all_ev[0]["mono"]) if all_ev else 0.0  # relógio do observador
 
@@ -226,7 +323,8 @@ def analyze(logdir: Path) -> dict:
     for recs in nodes.values():
         for r in recs:
             if r["event"] == "NODE_START":
-                cfg = {k: r.get(k) for k in ("sync_mode", "seed", "cs_min", "cs_max", "semaphore_k", "stage_min", "stage_max")}
+                cfg = {k: r.get(k) for k in ("sync_mode", "run_mode", "seed", "cs_min", "cs_max",
+                                             "semaphore_k", "stage_min", "stage_max")}
                 break
         if cfg:
             break
@@ -253,6 +351,7 @@ def analyze(logdir: Path) -> dict:
             "operacoes_etcd_por_entrada": round(statistics.mean(sops), 2) if sops else 0,
             "notificacoes_watch_por_entrada": round(statistics.mean(swk), 2) if swk else 0,
         }
+        traffic["protocolo_semaforo"] = sem_metrics["operacoes_etcd_por_entrada"]
     metrics = {
         "config": cfg,
         "nodes": len(nodes),
@@ -272,6 +371,7 @@ def analyze(logdir: Path) -> dict:
         "acessos_por_cliente": {c: len(v) for c, v in sorted(per_client.items())},
         "espera_mediana_por_cliente_s": {c: round(statistics.median(v), 3) for c, v in sorted(per_client.items())},
         "config_clientes": client_cfg,
+        "trafego_por_entrada": traffic,
         "semaforo": sem_metrics,
     }
     return {"checks": checks, "metrics": metrics, "protected": protected}
@@ -287,11 +387,15 @@ def report(result: dict) -> int:
     m = result["metrics"]
     print("\n=== Métricas ===")
     for k, v in m.items():
-        if k not in ("acessos_por_cliente", "espera_mediana_por_cliente_s", "config_clientes", "config", "semaforo"):
+        if k not in ("acessos_por_cliente", "espera_mediana_por_cliente_s", "config_clientes", "config",
+                     "semaforo", "trafego_por_entrada"):
             print(f"  {k:<34} {v}")
     print(f"  {'config':<34} {m['config']}")
     print(f"  {'acessos_por_cliente':<34} {m['acessos_por_cliente']}")
     print(f"  {'espera_mediana_por_cliente_s':<34} {m['espera_mediana_por_cliente_s']}")
+    print("\n=== Tráfego por entrada (protocolo x instrumentação) ===")
+    for k, v in m["trafego_por_entrada"].items():
+        print(f"  {k:<34} {'-' if v is None else v}")
     if m.get("semaforo"):
         print("\n=== Métricas da etapa do semáforo ===")
         for k, v in m["semaforo"].items():

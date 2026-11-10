@@ -3,13 +3,16 @@
 
 Uso:  python scripts/gen_compose.py --nodes 5 --clients 5 > docker-compose.yml
 O cliente i conhece apenas o nó ((i-1) mod N)+1.
+A imagem da aplicação é construída UMA vez (só o serviço observer tem `build`); os
+demais serviços reutilizam a mesma imagem (`pull_policy: never`). Com `build` em todos
+os serviços, o Docker exportava a mesma imagem uma vez por serviço (~10 s cada).
 Os parâmetros do experimento vêm de variáveis de ambiente do host
 (REQUESTS, THINK_MIN, SYNC_MODE, ... ) — veja scripts/run_experiment.py.
 """
 import argparse
 
 ENV_PASSTHROUGH = [
-    "SYNC_MODE", "SEED", "RUN_ID", "CS_MIN", "CS_MAX",
+    "SYNC_MODE", "RUN_MODE", "SEED", "RUN_ID", "CS_MIN", "CS_MAX",
     "SEMAPHORE_K", "STAGE_MIN", "STAGE_MAX",
 ]
 CLIENT_PASSTHROUGH = [
@@ -17,7 +20,7 @@ CLIENT_PASSTHROUGH = [
     "HEAVY_CLIENT", "HEAVY_REQUESTS", "HEAVY_THINK_MIN", "HEAVY_THINK_MAX",
 ]
 DEFAULTS = {
-    "SYNC_MODE": "etcd", "SEED": "1", "RUN_ID": "docker", "CS_MIN": "0.2", "CS_MAX": "1.0",
+    "SYNC_MODE": "etcd", "RUN_MODE": "docker", "SEED": "1", "RUN_ID": "docker", "CS_MIN": "0.2", "CS_MAX": "1.0",
     "START_AT": "0", "REQUESTS": "10", "THINK_MIN": "1.0", "THINK_MAX": "5.0",
     "SEMAPHORE_K": "0", "STAGE_MIN": "0.2", "STAGE_MAX": "1.0",
     "HEAVY_CLIENT": "", "HEAVY_REQUESTS": "30", "HEAVY_THINK_MIN": "0.0", "HEAVY_THINK_MAX": "0.3",
@@ -28,10 +31,16 @@ def var(name: str) -> str:
     return f"${{{name}:-{DEFAULTS[name]}}}"
 
 
-def common(command: str) -> list[str]:
+IMAGE = "tp2-etcd-sync:latest"
+
+
+def common(command: str, build: bool = False) -> list[str]:
+    head = ["    build: .", f"    image: {IMAGE}"] if build else [
+        f"    image: {IMAGE}",
+        "    pull_policy: never  # imagem local, construída pelo serviço observer",
+    ]
     return [
-        "    build: .",
-        "    image: tp2-etcd-sync:latest",
+        *head,
         '    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"',
         f"    command: python -m clustersync.{command}",
         "    volumes:",
@@ -53,7 +62,7 @@ def generate(nodes: int, clients: int) -> str:
         '      - "${ETCD_HOST_PORT:-2379}:2379"',
         "",
         "  observer:",
-        *common("observer"),
+        *common("observer", build=True),
         "    environment:",
         "      OBSERVER_PORT: 8000",
         "      LOG_DIR: /app/logs/${RUN_ID:-docker}",

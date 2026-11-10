@@ -29,6 +29,7 @@
   "metrics": {
     "config": {
       "sync_mode": "none",
+      "run_mode": null,
       "seed": "1",
       "cs_min": 0.2,
       "cs_max": 1.0,
@@ -105,6 +106,18 @@
         ],
         "heavy": false
       }
+    },
+    "trafego_por_entrada": {
+      "protocolo_R_observado": 0,
+      "protocolo_R_teorico": 0,
+      "modelo_teorico_R": "0",
+      "rodadas_espera_R": 0,
+      "timeouts_watch_R": 0,
+      "protocolo_semaforo": 0,
+      "keepalives_sessao": null,
+      "instrumentacao_observador": 4.0,
+      "instrumentacao_leituras_etcd": 0,
+      "aplicacao_cliente_no": 2.0
     },
     "semaforo": {
       "K": 2,

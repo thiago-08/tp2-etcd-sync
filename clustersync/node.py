@@ -6,6 +6,9 @@ com BEGIN/END registrados no observador), libera via release(R, request_id)
 e responde COMMITTED. A sincronização (mutex.py) fica separada da seção
 crítica (CriticalSection abaixo) — no TP3 ela vira acesso ao Cluster Store.
 
+SYNC_MODE: etcd (receita do mutex no cliente), etcd-api (API de concorrência do
+etcd: Lock/Unlock) ou none (proteção desligada, só para validar o observador).
+
 Extensão (SEMAPHORE_K > 0): antes de escrever em R o pedido passa por uma etapa
 separada de capacidade limitada, protegida por um semáforo distribuído com K
 permissões (semaphore.py):
@@ -67,8 +70,8 @@ class ClusterSyncNode:
         info = self.sem.acquire(self.stage_name, request_id, trace=trace)
         wait_s = time.monotonic() - t0
         self.log.log("SEM_ACQUIRE", wait_s=round(wait_s, 6), create_rev=info.create_rev,
-                     queued_ahead=info.queued_ahead, wakeups=info.wakeups,
-                     etcd_ops=info.etcd_ops, permits=self.sem.permits, **meta)
+                     queued_ahead=info.queued_ahead, wakeups=info.wakeups, rounds=info.rounds,
+                     timeouts=info.timeouts, etcd_ops=info.etcd_ops, permits=self.sem.permits, **meta)
         try:
             self.sem_stage.run(client_id, request_id)
         finally:
@@ -92,8 +95,9 @@ class ClusterSyncNode:
         info = self.lock.acquire(self.resource, request_id, trace=trace)
         wait_s = time.monotonic() - t0
         self.log.log("ACQUIRE", wait_s=round(wait_s, 6), create_rev=info.create_rev,
-                     queued_ahead=info.queued_ahead, wakeups=info.wakeups,
-                     etcd_ops=info.etcd_ops, **meta)
+                     queued_ahead=info.queued_ahead, wakeups=info.wakeups, rounds=info.rounds,
+                     timeouts=info.timeouts, etcd_ops=info.etcd_ops, inst_ops=info.inst_ops,
+                     lock_mode=self.lock.mode, **meta)
         try:
             self.cs.run(client_id, request_id)
         finally:
@@ -156,6 +160,7 @@ def main():
     resource = env_str("RESOURCE", "R")
     cs_min, cs_max = env_float("CS_MIN", 0.2), env_float("CS_MAX", 1.0)
     observer_url = env_str("OBSERVER_URL", "http://localhost:8000")
+    run_mode = env_str("RUN_MODE", "manual")  # local | docker | manual (só para o registro)
 
     log = JsonlLogger(node_id)
     wait_http(f"{observer_url}/health")
@@ -177,7 +182,7 @@ def main():
     node = ClusterSyncNode(node_id, lock, cs, resource, log, sem, sem_stage, stage_name)
 
     server = Server(("0.0.0.0", port), make_handler(node))
-    log.log("NODE_START", port=port, sync_mode=mode, seed=seed, resource=resource,
+    log.log("NODE_START", port=port, run_mode=run_mode, sync_mode=mode, seed=seed, resource=resource,
             cs_min=cs_min, cs_max=cs_max, semaphore_k=sem_k, stage=stage_name,
             stage_min=stage_min, stage_max=stage_max)
 

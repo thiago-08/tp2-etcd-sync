@@ -36,7 +36,9 @@ ROOT = "/clustersync/semaphores"
 
 class EtcdSemaphoreService:
     """acquire/release de uma permissão. Reaproveita cliente e sessão (lease)
-    do EtcdMutexService do mesmo nó."""
+    do serviço de mutex do mesmo nó (EtcdMutexService ou EtcdLockApiService).
+    O etcd não tem semáforo pronto na API de concorrência (só Mutex e Election),
+    por isso a etapa é construída sobre as primitivas lease + revisão + watch."""
 
     mode = "etcd"
 
@@ -127,6 +129,7 @@ class EtcdSemaphoreService:
                 info.etcd_ops = ops
                 return info  # há permissão livre: estou entre os K mais antigos
 
+            info.rounds += 1
             holders = ahead[:k_permits]  # as K chaves que detêm as permissões agora
             trace(
                 "WAIT", resource=stage, permits=k_permits, ahead=len(ahead),
@@ -138,13 +141,16 @@ class EtcdSemaphoreService:
             info.predecessors.extend(h[len(pfx):] for h, _ in holders)
             if reason == "event":
                 info.wakeups += 1
+            else:
+                info.timeouts += 1
             trace("WAKE", resource=stage, reason=reason)
 
     def release(self, stage: str, request_id: str, trace=None) -> int:
         trace = trace or (lambda *a, **k: None)
         key = f"{ROOT}/{stage}/{request_id}"
-        deleted = self.client.delete(key)
-        trace("KEY_DELETED", resource=stage, key=key, deleted=bool(deleted))
+        resp = self.client.delete(key, return_response=True)
+        trace("KEY_DELETED", resource=stage, key=key, deleted=resp.deleted >= 1,
+              revision=resp.header.revision)
         return 1
 
 

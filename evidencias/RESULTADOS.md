@@ -7,10 +7,17 @@ Gerado por `scripts/collect_evidence.py` a partir de `logs/*/summary.json`. Temp
 - Carga: cada cliente: 10 pedidos, pausa 1.0–5.0 s (total 50 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/normal-etcd-n5x5-50ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
 | 1 | APROVADO | 50 | 39.964 | 1.251 | 0.307 | 2.064 | 5.16 | 0.58 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.16 | 5.16 | 0.58 | 0 | - | - | 2 | 2 |
 
 Acessos por cliente e espera mediana por cliente (s):
 
@@ -21,6 +28,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 20 pedidos, pausa 1.0–5.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 3 (sementes 1, 2, 3)
+- Pasta: `evidencias/normal-etcd-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -28,6 +36,14 @@ Acessos por cliente e espera mediana por cliente (s):
 | 2 | APROVADO | 100 | 81.019 | 1.234 | 0.355 | 1.23 | 5.32 | 0.66 |
 | 3 | APROVADO | 100 | 88.302 | 1.132 | 0.333 | 1.278 | 5.28 | 0.64 |
 | **média** | | 100 | 84.039 | 1.191 | 0.34 | 1.305 | 5.293 | 0.647 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.28 | 5.28 | 0.64 | 0 | - | - | 2 | 2 |
+| 2 | - | - | - | - | - | - | - | - |
+| 3 | - | - | - | - | - | - | - | - |
 
 Acessos por cliente e espera mediana por cliente (s):
 
@@ -40,6 +56,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 20 pedidos, pausa 1.0–5.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s · etapa do semáforo: 0.2–1.0 s
 - Repetições: 3 (sementes 1, 2, 3)
+- Pasta: `evidencias/normal-etcd-k2-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -56,6 +73,14 @@ Etapa do semáforo (K=2):
 | 2 | 2 | 0.65 | 33% | 0.014 | 0.501 | 4.42 | 0.14 |
 | 3 | 2 | 0.61 | 30% | 0.013 | 0.417 | 4.39 | 0.13 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.16 | 5.16 | 0.58 | 0 | 4.45 | - | 4 | 2 |
+| 2 | - | - | - | - | - | - | - | - |
+| 3 | - | - | - | - | - | - | - | - |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=0.074, c2=0.015, c3=0.089, c4=0.179, c5=0.219]
@@ -67,6 +92,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 20 pedidos, pausa 1.0–5.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s · etapa do semáforo: 0.2–1.0 s
 - Repetições: 3 (sementes 1, 2, 3)
+- Pasta: `evidencias/normal-etcd-k3-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -83,6 +109,14 @@ Etapa do semáforo (K=3):
 | 2 | 3 | 0.65 | 22% | 0.015 | 0.24 | 4.12 | 0.03 |
 | 3 | 3 | 0.62 | 21% | 0.012 | 0.039 | 4.16 | 0.04 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5 | 5 | 0.5 | 0 | 4.12 | - | 4 | 2 |
+| 2 | - | - | - | - | - | - | - | - |
+| 3 | - | - | - | - | - | - | - | - |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=0.094, c2=0.022, c3=0.012, c4=0.175, c5=0.085]
@@ -92,36 +126,30 @@ Acessos por cliente e espera mediana por cliente (s):
 ### contention | sync=etcd | 5 nós × 5 clientes
 
 - Carga: cada cliente: 10 pedidos, pausa 0.0–0.0 s (total 50 pedidos por execução)
-- Seção crítica de R: 0.05–0.15 s
-- Repetições: 1 (semente 1)
-
-| semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
-|---|---|---|---|---|---|---|---|---|
-| 1 | APROVADO | 50 | 6.201 | 8.063 | 0.474 | 0.606 | 5.96 | 0.98 |
-
-Acessos por cliente e espera mediana por cliente (s):
-
-- semente 1: acessos [c1=10, c2=10, c3=10, c4=10, c5=10] · espera [c1=0.474, c2=0.517, c3=0.474, c4=0.479, c5=0.467]
-
-### contention | sync=etcd | 5 nós × 10 clientes
-
-- Carga: cada cliente: 10 pedidos, pausa 0.0–0.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/contention-etcd-n5x5-50ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
-| 1 | APROVADO | 100 | 62.753 | 1.594 | 5.613 | 6.511 | 7.64 | 0.98 |
+| 1 | APROVADO | 50 | 32.57 | 1.535 | 2.504 | 3.372 | 5.96 | 0.98 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.96 | 5.96 | 0.98 | 0 | - | - | 2 | 2 |
 
 Acessos por cliente e espera mediana por cliente (s):
 
-- semente 1: acessos [c1=10, c10=10, c2=10, c3=10, c4=10, c5=10, c6=10, c7=10, c8=10, c9=10] · espera [c1=5.651, c10=5.395, c2=5.767, c3=5.661, c4=5.612, c5=5.516, c6=5.717, c7=5.915, c8=5.454, c9=5.385]
+- semente 1: acessos [c1=10, c2=10, c3=10, c4=10, c5=10] · espera [c1=2.453, c2=2.831, c3=2.471, c4=2.486, c5=2.541]
 
 ### contention | sync=etcd | 5 nós × 5 clientes
 
 - Carga: cada cliente: 20 pedidos, pausa 0.0–0.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 3 (sementes 1, 2, 3)
+- Pasta: `evidencias/contention-etcd-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -130,31 +158,47 @@ Acessos por cliente e espera mediana por cliente (s):
 | 3 | APROVADO | 100 | 61.032 | 1.638 | 2.491 | 3.17 | 5.98 | 0.99 |
 | **média** | | 100 | 62.089 | 1.611 | 2.501 | 3.15 | 5.98 | 0.99 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.98 | 5.98 | 0.99 | 0 | - | - | 2 | 2 |
+| 2 | - | - | - | - | - | - | - | - |
+| 3 | - | - | - | - | - | - | - | - |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=2.51, c2=2.589, c3=2.547, c4=2.396, c5=2.27]
 - semente 2: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=2.538, c2=2.376, c3=2.535, c4=2.569, c5=2.477]
 - semente 3: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=2.263, c2=2.46, c3=2.424, c4=2.491, c5=2.523]
 
-### contention | sync=etcd | 5 nós × 5 clientes
+### contention | sync=etcd | 5 nós × 10 clientes
 
-- Carga: cada cliente: 10 pedidos, pausa 0.0–0.0 s (total 50 pedidos por execução)
+- Carga: cada cliente: 10 pedidos, pausa 0.0–0.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/contention-etcd-n5x10-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
-| 1 | APROVADO | 50 | 32.57 | 1.535 | 2.504 | 3.372 | 5.96 | 0.98 |
+| 1 | APROVADO | 100 | 62.753 | 1.594 | 5.613 | 6.511 | 7.64 | 0.98 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 7.64 | 7.64 | 1.82 | 0.84 | - | - | 2 | 2 |
 
 Acessos por cliente e espera mediana por cliente (s):
 
-- semente 1: acessos [c1=10, c2=10, c3=10, c4=10, c5=10] · espera [c1=2.453, c2=2.831, c3=2.471, c4=2.486, c5=2.541]
+- semente 1: acessos [c1=10, c10=10, c2=10, c3=10, c4=10, c5=10, c6=10, c7=10, c8=10, c9=10] · espera [c1=5.651, c10=5.395, c2=5.767, c3=5.661, c4=5.612, c5=5.516, c6=5.717, c7=5.915, c8=5.454, c9=5.385]
 
 ### contention | sync=etcd | 10 nós × 10 clientes
 
 - Carga: cada cliente: 20 pedidos, pausa 0.0–0.0 s (total 200 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 3 (sementes 1, 2, 3)
+- Pasta: `evidencias/contention-etcd-n10x10-200ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -162,6 +206,14 @@ Acessos por cliente e espera mediana por cliente (s):
 | 2 | APROVADO | 200 | 128.384 | 1.558 | 5.655 | 6.971 | 7.61 | 0.97 |
 | 3 | APROVADO | 200 | 119.792 | 1.67 | 5.346 | 6.445 | 7.3 | 0.99 |
 | **média** | | 200 | 124.143 | 1.613 | 5.497 | 6.707 | 7.483 | 0.983 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 7.54 | 7.54 | 1.77 | 0.78 | - | - | 2 | 2 |
+| 2 | - | - | - | - | - | - | - | - |
+| 3 | - | - | - | - | - | - | - | - |
 
 Acessos por cliente e espera mediana por cliente (s):
 
@@ -174,6 +226,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 10 pedidos, pausa 0.0–0.0 s (total 50 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s · etapa do semáforo: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/contention-etcd-k2-n5x5-50ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -185,6 +238,12 @@ Etapa do semáforo (K=2):
 |---|---|---|---|---|---|---|---|
 | 1 | 2 | 0.94 | 47% | 0.04 | 0.899 | 4.6 | 0.2 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.92 | 5.92 | 0.96 | 0 | 4.6 | - | 4 | 2 |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=10, c2=10, c3=10, c4=10, c5=10] · espera [c1=2.156, c2=2.257, c3=1.842, c4=1.871, c5=1.905]
@@ -194,6 +253,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 20 pedidos, pausa 0.0–0.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s · etapa do semáforo: 0.2–1.0 s
 - Repetições: 3 (sementes 1, 2, 3)
+- Pasta: `evidencias/contention-etcd-k2-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -210,6 +270,14 @@ Etapa do semáforo (K=2):
 | 2 | 2 | 1 | 50% | 0.011 | 0.12 | 4.42 | 0.14 |
 | 3 | 2 | 1.03 | 51% | 0.013 | 0.299 | 4.48 | 0.16 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.98 | 5.98 | 0.99 | 0 | 4.3 | - | 4 | 2 |
+| 2 | - | - | - | - | - | - | - | - |
+| 3 | - | - | - | - | - | - | - | - |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=2.003, c2=1.829, c3=1.906, c4=1.829, c5=1.693]
@@ -221,6 +289,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 20 pedidos, pausa 0.0–0.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s · etapa do semáforo: 0.2–1.0 s
 - Repetições: 3 (sementes 1, 2, 3)
+- Pasta: `evidencias/contention-etcd-k3-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -237,6 +306,14 @@ Etapa do semáforo (K=3):
 | 2 | 3 | 1.02 | 34% | 0.012 | 0.041 | 4.12 | 0.03 |
 | 3 | 3 | 0.99 | 33% | 0.017 | 0.067 | 4.12 | 0.03 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.98 | 5.98 | 0.99 | 0 | 4.12 | - | 4 | 2 |
+| 2 | - | - | - | - | - | - | - | - |
+| 3 | - | - | - | - | - | - | - | - |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=1.935, c2=1.966, c3=1.868, c4=1.888, c5=1.749]
@@ -248,6 +325,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 10 pedidos, pausa 0.0–0.0 s (total 50 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s · etapa do semáforo: 1.0–2.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/contention-etcd-k3-etapa1.0-2.0-n5x5-50ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -259,6 +337,12 @@ Etapa do semáforo (K=3):
 |---|---|---|---|---|---|---|---|
 | 1 | 3 | 2.29 | 76% | 0.013 | 0.841 | 5.36 | 0.34 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.8 | 5.8 | 0.9 | 0 | 5.36 | - | 4 | 2 |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=10, c2=10, c3=10, c4=10, c5=10] · espera [c1=1.034, c2=0.781, c3=1.136, c4=1.091, c5=0.832]
@@ -268,10 +352,17 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 10 pedidos, pausa 0.0–0.0 s (total 50 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/contention-none-n5x5-50ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
 | 1 | detectou sobreposição | 50 | 7.723 | 6.474 | 0 | 0.001 | 0 | 0 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 0; "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 0 | 0 | 0 | 0 | - | - | 2 | 2 |
 
 Acessos por cliente e espera mediana por cliente (s):
 
@@ -282,10 +373,17 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 20 pedidos, pausa 0.0–0.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/contention-none-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
 | 1 | detectou sobreposição | 100 | 14.427 | 6.931 | 0 | 0 | 0 | 0 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 0; "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 0 | 0 | 0 | 0 | - | - | 2 | 2 |
 
 Acessos por cliente e espera mediana por cliente (s):
 
@@ -296,6 +394,7 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: cada cliente: 20 pedidos, pausa 0.0–0.0 s (total 100 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s · etapa do semáforo: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/contention-none-k2-n5x5-100ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
@@ -307,6 +406,12 @@ Etapa do semáforo (K=2):
 |---|---|---|---|---|---|---|---|
 | 1 | 5 | 2.28 | 114% | 0 | 0 | 0 | 0 |
 
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 0; "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 0 | 0 | 0 | 0 | 0 | - | 4 | 2 |
+
 Acessos por cliente e espera mediana por cliente (s):
 
 - semente 1: acessos [c1=20, c2=20, c3=20, c4=20, c5=20] · espera [c1=0.0, c2=0.0, c3=0.0, c4=0.0, c5=0.0]
@@ -316,10 +421,17 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: c1: 30 pedidos, pausa 0.0–0.3 s; c2,c3,c4,c5: 10 pedidos, pausa 1.0–5.0 s (total 70 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/uneven-etcd-n5x5-70ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
 | 1 | APROVADO | 70 | 46.362 | 1.51 | 0.907 | 1.831 | 5.69 | 0.84 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.69 | 5.69 | 0.84 | 0 | - | - | 2 | 2 |
 
 Acessos por cliente e espera mediana por cliente (s):
 
@@ -330,10 +442,17 @@ Acessos por cliente e espera mediana por cliente (s):
 - Carga: c1: 50 pedidos, pausa 0.0–0.3 s; c2,c3,c4,c5: 20 pedidos, pausa 1.0–5.0 s (total 130 pedidos por execução)
 - Seção crítica de R: 0.2–1.0 s
 - Repetições: 1 (semente 1)
+- Pasta: `evidencias/uneven-etcd-n5x5-130ped/`
 
 | semente | verificação | concluídos | tempo total (s) | vazão (acessos/s) | espera mediana R (s) | p95 (s) | ops etcd/entrada | notif. watch/entrada |
 |---|---|---|---|---|---|---|---|---|
 | 1 | APROVADO | 130 | 88.826 | 1.464 | 0.744 | 1.928 | 5.72 | 0.86 |
+
+Mensagens por entrada em R — protocolo × instrumentação (modelo teórico: 4 + 2·rodadas (sem disputa = 4; 1 rodada = 6); "-" = não registrado nos logs guardados desta repetição):
+
+| semente | protocolo R observado | protocolo R teórico | rodadas de espera | timeouts do watch | protocolo semáforo | keepalive sessão | instrumentação (observador) | cliente↔nó |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 5.72 | 5.72 | 0.86 | 0 | - | - | 2 | 2 |
 
 Acessos por cliente e espera mediana por cliente (s):
 

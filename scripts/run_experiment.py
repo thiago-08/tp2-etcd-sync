@@ -6,6 +6,7 @@ Exemplos
   python scripts/run_experiment.py --scenario normal --requests 10
   python scripts/run_experiment.py --scenario contention --requests 20
   python scripts/run_experiment.py --scenario contention --sync none      # proteção desligada
+  python scripts/run_experiment.py --scenario contention --sync etcd-api  # API de concorrência (Lock/Unlock)
   python scripts/run_experiment.py --scenario uneven --heavy-client c1
   python scripts/run_experiment.py --mode docker --nodes 10 --clients 5
   python scripts/run_experiment.py --scenario contention --semaphore 2   # extensão: semáforo K=2
@@ -49,7 +50,7 @@ def build_env(a, run_id: str, start_at: float) -> dict:
     tmax = a.think_max if a.think_max is not None else think[1]
     heavy = SCENARIOS[a.scenario]["heavy"]
     return {
-        "SYNC_MODE": a.sync, "SEED": str(a.seed), "RUN_ID": run_id,
+        "SYNC_MODE": a.sync, "SEED": str(a.seed), "RUN_ID": run_id, "RUN_MODE": a.mode,
         "CS_MIN": str(a.cs_min), "CS_MAX": str(a.cs_max),
         "START_AT": f"{start_at:.3f}", "REQUESTS": str(a.requests),
         "THINK_MIN": str(tmin), "THINK_MAX": str(tmax),
@@ -79,7 +80,7 @@ def progress_loop(procs, obs_url, total_hint, quiet):
 
 def run_local(a, run_id: str, log_dir: Path) -> None:
     import etcd3
-    if a.sync == "etcd":
+    if a.sync != "none":
         try:
             etcd3.client(host=a.etcd_host, port=a.etcd_port).status()
         except Exception:  # noqa: BLE001
@@ -166,8 +167,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--mode", choices=["local", "docker"], default="local")
     ap.add_argument("--scenario", choices=list(SCENARIOS), default="normal")
-    ap.add_argument("--sync", choices=["etcd", "none"], default="etcd",
-                    help="'none' desliga a proteção (prova que o observador detecta sobreposição)")
+    ap.add_argument("--sync", choices=["etcd", "etcd-api", "none"], default="etcd",
+                    help="'etcd' = receita do mutex no cliente (com log de cada passo); "
+                         "'etcd-api' = API de concorrência do etcd (serviço Lock/Unlock); "
+                         "'none' desliga a proteção (prova que o observador detecta sobreposição)")
     ap.add_argument("--nodes", type=int, default=5, help="processos do Cluster Sync")
     ap.add_argument("--clients", type=int, default=5)
     ap.add_argument("--requests", type=int, default=10, help="pedidos por cliente (enunciado: 10 a 50)")
@@ -192,6 +195,13 @@ def main():
     a = ap.parse_args()
     if a.start_delay is None:
         a.start_delay = 3.0 if a.mode == "local" else 10.0
+    heavy_n = a.heavy_requests or min(50, a.requests * 3)
+    if not 10 <= a.requests <= 50 or (a.scenario == "uneven" and not 10 <= heavy_n <= 50):
+        print("AVISO: o enunciado pede de 10 a 50 pedidos por cliente; esta execução fica fora do "
+              "cenário comum (use só como teste).")
+    if (a.cs_min, a.cs_max) != (0.2, 1.0):
+        print("AVISO: o enunciado fixa a seção crítica em 0,2–1 s; esta execução fica fora do "
+              "cenário comum (use só como teste e não a compare com as demais).")
 
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     sem_tag = f"-k{a.semaphore}" if a.semaphore else ""

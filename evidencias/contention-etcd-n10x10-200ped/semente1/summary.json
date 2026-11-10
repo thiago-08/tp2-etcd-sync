@@ -24,11 +24,17 @@
       "name": "Ordem de entrada = ordem de create_revision (FIFO)",
       "ok": true,
       "detail": "200 entradas verificadas"
+    },
+    {
+      "name": "Sessões (leases) válidas durante todo o experimento",
+      "ok": true,
+      "detail": "10 sessões (TTL 10 s) em 10 nós, expiradas = 0, pedidos com erro = 0, erros de keepalive = 0, chaves fora do lease do nó = 0, sessões encerradas normalmente = 10, intervalo entre keepalives não registrado nestes logs"
     }
   ],
   "metrics": {
     "config": {
       "sync_mode": "etcd",
+      "run_mode": null,
       "seed": "1",
       "cs_min": 0.2,
       "cs_max": 1.0,
@@ -155,6 +161,18 @@
         ],
         "heavy": false
       }
+    },
+    "trafego_por_entrada": {
+      "protocolo_R_observado": 7.54,
+      "protocolo_R_teorico": 7.54,
+      "modelo_teorico_R": "4 + 2·rodadas (sem disputa = 4; 1 rodada = 6)",
+      "rodadas_espera_R": 1.77,
+      "timeouts_watch_R": 0.78,
+      "protocolo_semaforo": null,
+      "keepalives_sessao": null,
+      "instrumentacao_observador": 2.0,
+      "instrumentacao_leituras_etcd": 0,
+      "aplicacao_cliente_no": 2.0
     },
     "semaforo": {}
   }

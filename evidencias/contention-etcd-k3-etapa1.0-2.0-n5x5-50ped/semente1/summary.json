@@ -31,6 +31,11 @@
       "detail": "50 entradas verificadas"
     },
     {
+      "name": "Sessões (leases) válidas durante todo o experimento",
+      "ok": true,
+      "detail": "5 sessões (TTL 10 s) em 5 nós, expiradas = 0, pedidos com erro = 0, erros de keepalive = 0, chaves fora do lease do nó = 0, sessões encerradas normalmente = 5, intervalo entre keepalives não registrado nestes logs"
+    },
+    {
       "name": "Fila da etapa S respeitada (ultrapassagens <= K-1 = 2)",
       "ok": true,
       "detail": "50 entradas, máx. de pedidos mais antigos ultrapassados = 1"
@@ -44,6 +49,7 @@
   "metrics": {
     "config": {
       "sync_mode": "etcd",
+      "run_mode": null,
       "seed": "1",
       "cs_min": 0.2,
       "cs_max": 1.0,
@@ -120,6 +126,18 @@
         ],
         "heavy": false
       }
+    },
+    "trafego_por_entrada": {
+      "protocolo_R_observado": 5.8,
+      "protocolo_R_teorico": 5.8,
+      "modelo_teorico_R": "4 + 2·rodadas (sem disputa = 4; 1 rodada = 6)",
+      "rodadas_espera_R": 0.9,
+      "timeouts_watch_R": 0,
+      "protocolo_semaforo": 5.36,
+      "keepalives_sessao": null,
+      "instrumentacao_observador": 4.0,
+      "instrumentacao_leituras_etcd": 0,
+      "aplicacao_cliente_no": 2.0
     },
     "semaforo": {
       "K": 3,
